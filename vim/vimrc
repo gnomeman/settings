@@ -1,0 +1,45 @@
+"---------- Pathogen ----------
+execute pathogen#infect()
+
+
+"---------- Keymaps ----------
+let mapleader=","
+
+
+"--------- Spacing ----------
+set backspace=indent,eol,start
+set expandtab
+set tabstop=4
+set shiftwidth=4
+"set softtabstop=4
+
+
+"---------- Syntax ----------
+filetype indent plugin on
+syntax on
+"colorscheme elflord
+"colorscheme vividchalk
+colorscheme jokersjinx
+set nu
+set nowrap
+set foldenable
+set foldmethod=indent
+set foldnestmax=2
+
+
+"---------- Pylint: Syntastic ----------
+"function! SyntasticDialog()
+"    set statusline+=%#warningmsg#
+"    set statusline+=%{SyntasticStatuslineFlag()}
+"    set statusline+=%*
+
+"    let g:syntastic_always_populate_loc_list = 1
+"    let g:syntastic_auto_loc_list = 1
+"    let g:syntastic_check_on_open = 1
+"    let g:syntastic_check_on_wq = 0
+"endfunction
+
+
+"---------- Go-To Functioe_splits_not_buffers =
+"let g:jedi#use_splits_not_buffers = \"right"
+
