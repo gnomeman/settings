@@ -1,1 +1,11 @@
-# settings
+Settings
+********
+
+VIM
+===
+
+TMux
+====
+
+bash
+====
