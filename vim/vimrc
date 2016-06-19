@@ -24,7 +24,8 @@ set nu
 set nowrap
 set foldenable
 set foldmethod=indent
-set foldnestmax=2
+set foldnestmax=99
+set spell spelllang=en_us
 
 
 "---------- Pylint: Syntastic ----------
