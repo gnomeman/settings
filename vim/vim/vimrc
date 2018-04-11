@@ -14,6 +14,7 @@ let &runtimepath = printf('%s,%s,%s/after', s:portable, &runtimepath, s:portable
 
 "---------- Keymaps ----------
 let mapleader=","
+imap jk <Esc>
 
 
 "--------- Spacing ----------
