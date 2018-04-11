@@ -1,0 +1,30 @@
+add-highlighter global number_lines
+set-face MatchingChar red,blue
+addhl global/ show_matching default,default+b
+map global insert <tab> '<a-;><gt>'
+colorscheme solarized-dark
+map global normal D '<a-l>d' -docstring 'delete to end of line'
+map global normal Y '<a-l>y' -docstring 'yank to end of line'
+map global normal '#' :comment-line<ret> -docstring 'comment line'
+map global normal '<a-#>' :comment-block<ret> -docstring 'comment block'
+
+# jk for escape
+hook global InsertChar k %{ try %{
+  exec -draft hH <a-k>jk<ret> d
+  exec <esc>
+}}
+
+# tab -> space
+map global insert <tab> '<a-;><gt>'
+map global insert <backtab> '<a-;><lt>'
+hook global InsertChar \t %{
+  exec -draft -itersel h@
+}
+hook global InsertKey <backspace> %{ try %{
+  exec -draft hGh<a-k>\A\h+\Z<ret>gihyp<lt>
+}}
+
+# (MacOS) copy to system clipboard
+hook global NormalKey y|d|c %{ nop %sh{
+  printf %s "$kak_reg_dquote" | pbcopy
+}}
