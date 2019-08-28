@@ -8,10 +8,6 @@ let s:portable = expand('<sfile>:p:h')
 let &runtimepath = printf('%s,%s,%s/after', s:portable, &runtimepath, s:portable)
 
 
-"---------- Pathogen ----------
-"execute pathogen#infect()
-
-
 "---------- Keymaps ----------
 let mapleader=","
 imap jk <Esc>
@@ -39,19 +35,13 @@ set foldnestmax=99
 "set spell spelllang=en_us
 
 
-"---------- Pylint: Syntastic ----------
-"function! SyntasticDialog()
-"    set statusline+=%#warningmsg#
-"    set statusline+=%{SyntasticStatuslineFlag()}
-"    set statusline+=%*
-
-"    let g:syntastic_always_populate_loc_list = 1
-"    let g:syntastic_auto_loc_list = 1
-"    let g:syntastic_check_on_open = 1
-"    let g:syntastic_check_on_wq = 0
-"endfunction
-
-
-"---------- Go-To Functioe_splits_not_buffers =
-"let g:jedi#use_splits_not_buffers = \"right"
-
+"---------- Clipboard (Neovim) ----------
+set clipboard+=unnamedplus
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
