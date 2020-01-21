@@ -1,201 +1,128 @@
-" Vim color scheme
-" Name:         jokersjinx.vim
-" Author:       notorious
-" Version:      0.01
-" GetLatestVimScripts: 1891 1 :AutoInstall: jokersjinx.vim
+" -------------------------------------
+" Name: Joker"s Jinx
+" Description: Vibrant vim colorscheme inspired by the clown prince of darkness.
 
-" Based on the Vibrank Ink theme for TextMate
-" Distributable under the same terms as Vim itself (see :help license)
 
-"if has("gui_running")
-"    set background=dark
-"endif
-hi clear
+" Clear highlights
+highlight clear
+
+" Clear old syntax definitions
 if exists("syntax_on")
-   syntax reset
+    syntax reset
 endif
 
-let colors_name = "jokersjinx"
+" Set theme name
+let g:colors_name = "jokersjinx"
 
-" First two functions adapted from inkpot.vim
+function! s:set() abort
+    let deepskyblue     = {"gui": "#005f5f",    "cterm":    "23"}
+    let darkseagreen    = {"gui": "#d7ffaf",    "cterm":    "193"}
+    let honeydew        = {"gui": "#d7ffd7",    "cterm":    "194"}
+    let hotpink         = {"gui": "#d75f5f",    "cterm":    "168"}
+    let deeppink        = {"gui": "#d7005f",    "cterm":    "161"}
+    let cadetblue       = {"gui": "#000080",    "cterm":    "4"}
+    let lightgoldenrod  = {"gui": "#d7af5f",    "cterm":    "179"}
+    let cornflowerblue  = {"gui": "#5f87ff",    "cterm":    "69"}
+    let salmon          = {"gui": "#FFA98C",    "cterm":    "209"}
+    let darkerseagreen  = {"gui": "#afd787",    "cterm":    "150"}
+    let lightpink       = {"gui": "#d7d7af",    "cterm":    "187"}
+    let lightsalmon     = {"gui": "#ffaf87",    "cterm":    "175"}
+    let darkestseagreen = {"gui": "#5faf5f",    "cterm":    "71"}
 
-" map a urxvt cube number to an xterm-256 cube number
-fun! s:M(a)
-    return strpart("0245", a:a, 1) + 0
-endfun
+    " Custom color scheme
+    let white           = {"gui": "#ffffff",    "cterm":    "15"}
+    let obsidian        = {"gui": "#585858",    "cterm":    "240"}
+    let violentviolet   = {"gui": "#af00ff",    "cterm":    "129"}
+    let redlipstick     = {"gui": "#ff0000",    "cterm":    "196"}
+    let turquoise       = {"gui": "#00d7ff",    "cterm":    "45"}
+    let magenta         = {"gui": "#d700ff",    "cterm":    "165"}
+    let neongreen       = {"gui": "#5fff5f",    "cterm":    "83"}
 
-" map a urxvt colour to an xterm-256 colour
-fun! s:X(a)
-    if &t_Co == 88
-        return a:a
-    else
-        if a:a == 8
-            return 237
-        elseif a:a < 16
-            return a:a
-        elseif a:a > 79
-            return 232 + (3 * (a:a - 80))
-        else
-            let l:b = a:a - 16
-            let l:x = l:b % 4
-            let l:y = (l:b / 4) % 4
-            let l:z = (l:b / 16)
-            return 16 + s:M(l:x) + (6 * s:M(l:y)) + (36 * s:M(l:z))
-        endif
-    endif
-endfun
+    let none            = {"gui": "NONE",           "cterm":    "NONE"}
+    let bold            = {"gui": "bold",           "cterm":    "bold"}
+    let italic          = {"gui": "italic",         "cterm":    "italic"}
+    let underline       = {"gui": "underline",      "cterm":    "underline"}
+    let undercurl       = {"gui": "undercurl",      "cterm":    "underline"}
+    let boldcurl        = {"gui": "bold,undercurl", "cterm":    "bold,underline"}
+    let boldunderline   = {"gui": "bold,underline", "cterm":    "bold,underline"}
+    let bolditalic      = {"gui": "bold,italic",    "cterm":    "bold,italic"}
 
-function! E2T(a)
-    return s:X(a:a)
+    let highlight_group = {}
+
+    " General
+    let highlight_group.Normal       = [honeydew, none, none, none]
+    let highlight_group.Visual       = [honeydew, violentviolet, bold, none]
+    let highlight_group.ColorColumn  = [none, honeydew, none, none]
+    let highlight_group.SignColumn   = [deeppink, none, none, none]
+    let highlight_group.IncSearch    = [neongreen, violentviolet, bold, none]
+    let highlight_group.Search       = [violentviolet, neongreen, none, none]
+    let highlight_group.SpecialKey   = [darkerseagreen, lightpink, none, none]
+    let highlight_group.Directory    = [cornflowerblue, none, none, none]
+    let highlight_group.Title        = [none, none, bold, none]
+    let highlight_group.WarningMsg   = [none, lightgoldenrod, bold, none]
+    let highlight_group.ErrorMsg     = [redlipstick, neongreen, bold, none]
+    let highlight_group.EndOfBuffer  = [lightpink, none, bold, none]
+    let highlight_group.StatusLine   = [obsidian, neongreen, bold, none]
+    let highlight_group.PmenuSel     = [neongreen, cadetblue, bold, none]
+    let highlight_group.Pmenu        = [white, magenta, none, none]
+
+    " Cursor
+    let highlight_group.Cursor       = [turquoise, violentviolet, bold, none]
+    let highlight_group.CursorLineNr = [lightgoldenrod, none, bold, none]
+
+    " Sidebar
+    let highlight_group.LineNr       = [obsidian, none, none, none]
+
+    " Folds
+    let highlight_group.Folded       = [neongreen, violentviolet, bold, none]
+    let highlight_group.MatchParen   = [neongreen, violentviolet, none, none]
+
+    " Syntax groups
+    let highlight_group.Comment      = [magenta, none, none, none]
+    let highlight_group.Identifier   = [cornflowerblue, none, bold, none]
+    let highlight_group.Statement    = [neongreen, none, bold, none]
+    let highlight_group.Function     = [turquoise, none, bold, none]
+    let highlight_group.Constant     = [violentviolet, none, none, none]
+    let highlight_group.String       = [cornflowerblue, none, none, none]
+    let highlight_group.Number       = [neongreen, none, none, none]
+    let highlight_group.Type         = [cornflowerblue, none, bold, none]
+    let highlight_group.Special      = [redlipstick, none, none, none]
+    let highlight_group.PreProc      = [neongreen, none, bold, none]
+    let highlight_group.Todo         = [redlipstick, none, bold, none]
+    let highlight_group.Error        = [honeydew, deeppink, bold, none]
+    let highlight_group.Underlined   = [turquoise, none, underline, none]
+
+    " Tabs
+    let highlight_group.TabLineSel   = [neongreen, violentviolet, bold, none]
+    let highlight_group.TabLineFill  = [cornflowerblue, neongreen, none, none]
+    let highlight_group.TabLine      = [violentviolet, neongreen, bold, none]
+ 
+    " Diff
+    let highlight_group.DiffAdd     = [deepskyblue, neongreen, none, none]
+    let highlight_group.DiffChange  = [deepskyblue, lightgoldenrod, none, none]
+    let highlight_group.DiffDelete  = [deepskyblue, hotpink, none, none]
+    let highlight_group.DiffText    = [deepskyblue, darkerseagreen, none, none]
+
+    " Spelling
+    let highlight_group.SpellBad     = [redlipstick, none, underline, none]
+    let highlight_group.SpellCap     = [lightpink, none, underline, none]
+    let highlight_group.SpellLocal   = [neongreen, none, underline, none]
+    let highlight_group.SpellRare    = [cornflowerblue, none, underline, none]
+
+    " Coc
+    let highlight_group.CocListPath = [none, white, none, none]
+
+    for [group, colors] in items(highlight_group)
+        execute printf("highlight %s guifg=%s guibg=%s gui=%s, guisp=%s ctermfg=%s ctermbg=%s cterm=%s",
+                        \ group,
+                        \ colors[0]["gui"],
+                        \ colors[1]["gui"],
+                        \ colors[2]["gui"],
+                        \ colors[3]["gui"],
+                        \ colors[0]["cterm"],
+                        \ colors[1]["cterm"],
+                        \ colors[2]["cterm"]
+                        \ )
+    endfor
 endfunction
-
-function! s:choose(mediocre,good)
-    if &t_Co != 88 && &t_Co != 256
-        return a:mediocre
-    else
-        return s:X(a:good)
-    endif
-endfunction
-
-function! s:hifg(group,guifg,first,second,...)
-    if a:0 && &t_Co == 256
-        let ctermfg = a:1
-    else
-        let ctermfg = s:choose(a:first,a:second)
-    endif
-    exe "highlight ".a:group." guifg=".a:guifg." ctermfg=".ctermfg
-endfunction
-
-function! s:hibg(group,guibg,first,second)
-    let ctermbg = s:choose(a:first,a:second)
-    exe "highlight ".a:group." guibg=".a:guibg." ctermbg=".ctermbg
-endfunction
-
-hi link railsMethod         PreProc
-hi link rubyDefine          Keyword
-hi link rubySymbol          Constant
-hi link rubyAccess          rubyMethod
-hi link rubyAttribute       rubyMethod
-hi link rubyEval            rubyMethod
-hi link rubyException       rubyMethod
-hi link rubyInclude         rubyMethod
-hi link rubyStringDelimiter rubyString
-hi link rubyRegexp          Regexp
-hi link rubyRegexpDelimiter rubyRegexp
-"hi link rubyConstant        Variable
-"hi link rubyGlobalVariable  Variable
-"hi link rubyClassVariable   Variable
-"hi link rubyInstanceVariable Variable
-hi link javascriptRegexpString  Regexp
-hi link javascriptNumber        Number
-hi link javascriptNull          Constant
-highlight link diffAdded        String
-highlight link diffRemoved      Statement
-highlight link diffLine         PreProc
-highlight link diffSubname      Comment
-
-call s:hifg("Normal","#EEEEEE","White",87)
-if &background == "light" || has("gui_running")
-    hi Normal guibg=Black ctermbg=Black
-else
-    hi Normal guibg=Black ctermbg=NONE
-endif
-highlight StatusLine    guifg=Black   guibg=#aabbee gui=bold ctermfg=Black ctermbg=White  cterm=bold
-highlight StatusLineNC  guifg=#444444 guibg=#aaaaaa gui=none ctermfg=Black ctermbg=Grey   cterm=none
-"if &t_Co == 256
-    "highlight StatusLine ctermbg=117
-"else
-    "highlight StatusLine ctermbg=43
-"endif
-
-highlight Ignore        ctermfg=Black
-highlight WildMenu      guifg=Black   guibg=#ffff00 gui=bold ctermfg=Black ctermbg=Yellow cterm=bold
-highlight Cursor        guifg=Black guibg=White ctermfg=Black ctermbg=White
-call s:hibg("ColorColumn","#333333","DarkGrey",81)
-call s:hibg("CursorLine","#333333","DarkGrey",81)
-call s:hibg("CursorColumn","#333333","DarkGrey",81)
-highlight NonText       guifg=#404040 ctermfg=8
-highlight SpecialKey    guifg=#404040 ctermfg=8
-highlight Directory     none
-high link Directory     Identifier
-highlight ErrorMsg      guibg=Red ctermbg=DarkRed guifg=NONE ctermfg=NONE
-highlight Search        guifg=NONE ctermfg=NONE gui=none cterm=none
-call s:hibg("Search"    ,"#555555","DarkBlue",81)
-highlight IncSearch     guifg=White guibg=Black ctermfg=White ctermbg=Black
-highlight MoreMsg       guifg=#00AA00 ctermfg=Green
-highlight LineNr        guifg=#DDEEFF ctermfg=White
-call s:hibg("LineNr"    ,"#222222","DarkBlue",80)
-highlight Question      none
-high link Question      MoreMsg
-highlight Title         guifg=Magenta ctermfg=Magenta
-highlight VisualNOS     gui=none cterm=none
-call s:hibg("Visual"    ,"#555577","LightBlue",83)
-call s:hibg("VisualNOS" ,"#444444","DarkBlue",81)
-call s:hibg("MatchParen","#1100AA","DarkBlue",18)
-highlight WarningMsg    guifg=Red ctermfg=Red
-highlight Error         ctermbg=DarkRed
-highlight SpellBad      ctermbg=DarkRed
-" FIXME: Comments
-highlight SpellRare     ctermbg=DarkMagenta
-highlight SpellCap      ctermbg=DarkBlue
-highlight SpellLocal    ctermbg=DarkCyan
-
-call s:hibg("Folded"    ,"#110077","DarkBlue",17)
-call s:hifg("Folded"    ,"#aaddee","LightCyan",63)
-highlight FoldColumn    none
-high link FoldColumn    Folded
-highlight DiffAdd       ctermbg=4 guibg=DarkBlue
-highlight DiffChange    ctermbg=5 guibg=DarkMagenta
-highlight DiffDelete    ctermfg=12 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan
-highlight DiffText      ctermbg=DarkRed
-highlight DiffText      cterm=bold ctermbg=9 gui=bold guibg=Red
-
-highlight Pmenu         guifg=White ctermfg=White gui=bold cterm=bold
-highlight PmenuSel      guifg=White ctermfg=White gui=bold cterm=bold
-call s:hibg("Pmenu"     ,"#000099","Blue",18)
-call s:hibg("PmenuSel"  ,"#5555ff","DarkCyan",39)
-highlight PmenuSbar     guibg=Grey ctermbg=Grey
-highlight PmenuThumb    guibg=White ctermbg=White
-highlight TabLine       gui=underline cterm=underline
-call s:hifg("TabLine"   ,"#bbbbbb","LightGrey",85)
-call s:hibg("TabLine"   ,"#333333","DarkGrey",80)
-highlight TabLineSel    guifg=White guibg=Black ctermfg=White ctermbg=Black
-highlight TabLineFill   gui=underline cterm=underline
-call s:hifg("TabLineFill","#bbbbbb","LightGrey",85)
-call s:hibg("TabLineFill","#808080","Grey",83)
-
-
-"---------- @fixme Attempt ----------
-highlight pythonRepeat ctermfg=LightCyan
-highlight pythonNumber ctermfg=LightBlue
-highlight pythonParens ctermfg=LightMagenta
-highlight pyOperators ctermfg=LightMagenta
-"---------- @fixme END ----------
-
-
-hi Type gui=none
-hi Statement gui=none
-if !has("gui_mac")
-    " Mac GUI degrades italics to ugly underlining.
-    hi Comment gui=italic
-    hi railsUserClass  gui=italic
-    hi railsUserMethod gui=italic
-endif
-hi Identifier cterm=none
-" Commented numbers at the end are *old* 256 color values
-"highlight PreProc       guifg=#EDF8F9
-call s:hifg("Comment"        ,"#9933CC","DarkMagenta",34) " 92
-" 26 instead?
-call s:hifg("Constant"       ,"#339999","DarkCyan",21) " 30
-call s:hifg("rubyNumber"     ,"#CCFF33","Yellow",60) " 190
-call s:hifg("String"         ,"#66FF00","LightGreen",44,82) " 82
-call s:hifg("Identifier"     ,"#FFCC00","Yellow",72) " 220
-call s:hifg("Statement"      ,"#FF6600","Brown",68) " 202
-call s:hifg("PreProc"        ,"#AAFFFF","LightCyan",47) " 213
-call s:hifg("railsUserMethod","#AACCFF","LightCyan",27)
-call s:hifg("Type"           ,"#AAAA77","Grey",57) " 101
-call s:hifg("railsUserClass" ,"#AAAAAA","Grey",7) " 101
-call s:hifg("Special"        ,"#33AA00","DarkGreen",24) " 7
-call s:hifg("Regexp"         ,"#44B4CC","DarkCyan",21) " 74
-call s:hifg("rubyMethod"     ,"#DDE93D","Yellow",77) " 191
-"highlight railsMethod   guifg=#EE1122 ctermfg=1
+call s:set()
