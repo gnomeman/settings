@@ -1,6 +1,9 @@
-" -------------------------------------
-" Name: Joker"s Jinx
-" Description: Vibrant vim colorscheme inspired by the clown prince of darkness.
+" ====================================================================================
+" 
+" Name: Devastator
+" Description: Vibrant color scheme inspired by the juggernaut Decepticon Transformer.
+"
+" ====================================================================================
 
 
 " Clear highlights
@@ -12,7 +15,7 @@ if exists("syntax_on")
 endif
 
 " Set theme name
-let g:colors_name = "jokersjinx"
+let g:colors_name = "devastator"
 
 function! s:set() abort
     let deepskyblue     = {"gui": "#005f5f",    "cterm":    "23"}
@@ -68,7 +71,7 @@ function! s:set() abort
 
     " Cursor
     let highlight_group.Cursor       = [turquoise, violentviolet, bold, none]
-    let highlight_group.CursorLineNr = [lightgoldenrod, none, bold, none]
+    let highlight_group.CursorLineNr = [neongreen, none, bold, none]
 
     " Sidebar
     let highlight_group.LineNr       = [obsidian, none, none, none]
