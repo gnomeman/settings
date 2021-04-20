@@ -1,8 +1,8 @@
-# Go IDE
+# Install plugin system
 
-## Install plugin system
+## vim-plug
 
-```
+``` sh
 git clone https://github.com/junegunn/vim-plug.git
 cd ~/.config/nvim
 mkdir autoload
@@ -11,10 +11,14 @@ ln -s /path/to/plug.vim plug.vim
 ```
 
 
+
+# Go IDE
+
 ## Install LSP and Go plugins
 
 `~/.config/nvim/init.vim`
-```
+
+``` vim
 call plug#begin("~/.vim/plugged")
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'dense-analysis/ale'
@@ -23,7 +27,7 @@ call plug#end()
 
 Run open `nvim` and run the following options to install Go binaries:
 
-```
+``` vim
 :PlugIntall
 :GoBinariesInstall
 ```
@@ -35,7 +39,7 @@ Add the following filetype
 
 `~/.config/nvim/after/ftplugin/go.vim`
 
-```
+``` vim
 filetype plugin indent on
 set autowrite
 au filetype go inoremap <buffer> . .<C-x><C-o>
@@ -89,7 +93,7 @@ let g:ale_fixers = {
 
 ## Environment variables
 
-```
+``` sh
 # Environment
 export PATH=$PATH:~/go/bin
 ```
