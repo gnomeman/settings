@@ -11,16 +11,17 @@ ln -s /path/to/plug.vim plug.vim
 ```
 
 
-## Initialize
+## Install LSP and Go plugins
 
 `~/.config/nvim/init.vim`
 ```
 call plug#begin("~/.vim/plugged")
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'dense-analysis/ale'
 call plug#end()
 ```
 
-Run open `nvim` and run the following options
+Run open `nvim` and run the following options to install Go binaries:
 
 ```
 :PlugIntall
@@ -28,8 +29,7 @@ Run open `nvim` and run the following options
 ```
 
 
-
-# Basics
+## Configure ALE
 
 Add the following filetype
 
@@ -38,6 +38,8 @@ Add the following filetype
 ```
 filetype plugin indent on
 set autowrite
+au filetype go inoremap <buffer> . .<C-x><C-o>
+
 
 " Go syntax highlighting
 let g:go_highlight_fields = 1
@@ -68,4 +70,26 @@ endfunction
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
+
+
+" Ale setup
+let g:ale_cursor_detail = 1
+let g:ale_floating_preview = 1
+let g:ale_linters = {
+\ 'go': ['gopls', 'golangci-lint', 'gofmt', 'govet', 'staticcheck'],
+\}
+
+let g:ale_go_golangci_lint_options = '--fast'
+
+let g:ale_fixers = {
+\  'go': ['gofmt', 'goimports']
+\}
+```
+
+
+## Environment variables
+
+```
+# Environment
+export PATH=$PATH:~/go/bin
 ```
