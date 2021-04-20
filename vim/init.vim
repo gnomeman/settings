@@ -36,6 +36,7 @@ syntax enable
 filetype indent plugin on
 filetype indent off
 set virtualedit=onemore
+set completeopt+=noinsert
 colorscheme devastator
 "colorscheme elflord
 set cursorline
