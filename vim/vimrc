@@ -27,7 +27,7 @@ filetype indent plugin on
 syntax on
 "colorscheme elflord
 "colorscheme vividchalk
-colorscheme jokersjinx
+colorscheme devastator
 set nu
 set nowrap
 set foldenable
