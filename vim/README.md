@@ -44,7 +44,6 @@ filetype plugin indent on
 set autowrite
 au filetype go inoremap <buffer> . .<C-x><C-o>
 
-
 " Go syntax highlighting
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
@@ -79,6 +78,7 @@ autocmd FileType go nmap <leader>t  <Plug>(go-test)
 " Ale setup
 let g:ale_cursor_detail = 1
 let g:ale_floating_preview = 1
+let g:ale_close_preview_on_insert = 1
 let g:ale_linters = {
 \ 'go': ['gopls', 'golangci-lint', 'gofmt', 'govet', 'staticcheck'],
 \}
