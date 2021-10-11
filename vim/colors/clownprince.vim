@@ -1,7 +1,7 @@
 " ====================================================================================
 " 
-" Name: Devastator
-" Description: Vibrant color scheme inspired by the juggernaut Decepticon Transformer.
+" Name: Clown Prince
+" Description: Vibrant color scheme inspired by The Clown Price of Darkness.
 "
 " ====================================================================================
 
@@ -15,24 +15,19 @@ if exists("syntax_on")
 endif
 
 " Set theme name
-let g:colors_name = "devastator"
+let g:colors_name = "clownprince"
 
 function! s:set() abort
+    " Colors
     let deepskyblue     = {"gui": "#005f5f",    "cterm":    "23"}
-    let darkseagreen    = {"gui": "#d7ffaf",    "cterm":    "193"}
     let honeydew        = {"gui": "#d7ffd7",    "cterm":    "194"}
     let hotpink         = {"gui": "#d75f5f",    "cterm":    "168"}
     let deeppink        = {"gui": "#d7005f",    "cterm":    "161"}
     let cadetblue       = {"gui": "#000080",    "cterm":    "4"}
     let lightgoldenrod  = {"gui": "#d7af5f",    "cterm":    "179"}
     let cornflowerblue  = {"gui": "#5f87ff",    "cterm":    "69"}
-    let salmon          = {"gui": "#FFA98C",    "cterm":    "209"}
     let darkerseagreen  = {"gui": "#afd787",    "cterm":    "150"}
     let lightpink       = {"gui": "#d7d7af",    "cterm":    "187"}
-    let lightsalmon     = {"gui": "#ffaf87",    "cterm":    "175"}
-    let darkestseagreen = {"gui": "#5faf5f",    "cterm":    "71"}
-
-    " Custom color scheme
     let white           = {"gui": "#ffffff",    "cterm":    "15"}
     let obsidian        = {"gui": "#585858",    "cterm":    "240"}
     let violentviolet   = {"gui": "#af00ff",    "cterm":    "129"}
@@ -41,18 +36,13 @@ function! s:set() abort
     let magenta         = {"gui": "#d700ff",    "cterm":    "165"}
     let neongreen       = {"gui": "#5fff5f",    "cterm":    "83"}
 
+	" Font styles
     let none            = {"gui": "NONE",           "cterm":    "NONE"}
     let bold            = {"gui": "bold",           "cterm":    "bold"}
-    let italic          = {"gui": "italic",         "cterm":    "italic"}
     let underline       = {"gui": "underline",      "cterm":    "underline"}
-    let undercurl       = {"gui": "undercurl",      "cterm":    "underline"}
-    let boldcurl        = {"gui": "bold,undercurl", "cterm":    "bold,underline"}
-    let boldunderline   = {"gui": "bold,underline", "cterm":    "bold,underline"}
-    let bolditalic      = {"gui": "bold,italic",    "cterm":    "bold,italic"}
-
-    let highlight_group = {}
 
     " General
+    let highlight_group = {}
     let highlight_group.Normal       = [honeydew, none, none, none]
     let highlight_group.Visual       = [honeydew, violentviolet, bold, none]
     let highlight_group.ColorColumn  = [none, honeydew, none, none]
@@ -70,10 +60,10 @@ function! s:set() abort
     let highlight_group.Pmenu        = [white, magenta, none, none]
 
     " Cursor
-    let highlight_group.Cursor       = [turquoise, violentviolet, bold, none]
+    let highlight_group.CursorLine   = [none, none, none, none]
     let highlight_group.CursorLineNr = [neongreen, none, bold, none]
 
-    " Sidebar
+    " Line numbers
     let highlight_group.LineNr       = [obsidian, none, none, none]
 
     " Folds
@@ -113,7 +103,9 @@ function! s:set() abort
     let highlight_group.SpellRare    = [cornflowerblue, none, underline, none]
 
     " Coc
-    let highlight_group.CocListPath = [none, white, none, none]
+    let highlight_group.CocListPath		= [none, white, none, none]
+    let highlight_group.CocErrorSign	= [none, violentviolet, none, none]
+    let highlight_group.CocWarningSign	= [none, violentviolet, none, none]
 
     for [group, colors] in items(highlight_group)
         execute printf("highlight %s guifg=%s guibg=%s gui=%s, guisp=%s ctermfg=%s ctermbg=%s cterm=%s",

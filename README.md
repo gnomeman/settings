@@ -1,11 +1,3 @@
-Settings
-========
+# Settings
 
-VIM
----
-
-TMux
-----
-
-bash
-----
+Settings, configs, and dot files.

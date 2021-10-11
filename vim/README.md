@@ -11,10 +11,27 @@ ln -s /path/to/plug.vim plug.vim
 ```
 
 
+# pav-nvim
+
+``` sh
+git clone --depth=1 https://github.com/savq/paq-nvim.git $HOME/.local/share/nvim/site/pack/paqs/start/paq-nvim
+```
+
+`lua/plugins.lua`
+
+``` sh
+require "paq" {
+  "savq/paq-nvim", -- Let Paq manage itself
+  "fatih/vim-go", -- Go developement
+  "neovim/nvim-lspconfig" -- Mind the semi-colons
+}
+```
+
+
 
 # Go IDE
 
-## Install LSP and Go plugins
+## Install ALE and Go plugins
 
 `~/.config/nvim/init.vim`
 
@@ -33,7 +50,7 @@ Run open `nvim` and run the following options to install Go binaries:
 ```
 
 
-## Configure ALE
+### Configure ALE
 
 Add the following filetype
 

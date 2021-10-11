@@ -26,8 +26,7 @@ set ve+=onemore
 filetype indent plugin on
 syntax on
 "colorscheme elflord
-"colorscheme vividchalk
-colorscheme devastator
+colorscheme clownprince
 set nu
 set nowrap
 set foldenable
