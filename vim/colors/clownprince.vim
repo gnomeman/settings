@@ -21,7 +21,7 @@ function! s:set() abort
     " Colors
     let deepskyblue     = {"gui": "#005f5f",    "cterm":    "23"}
     let honeydew        = {"gui": "#d7ffd7",    "cterm":    "194"}
-    let hotpink         = {"gui": "#d75f5f",    "cterm":    "168"}
+    let hotpink         = {"gui": "#ff5faf",    "cterm":    "205"}
     let deeppink        = {"gui": "#d7005f",    "cterm":    "161"}
     let cadetblue       = {"gui": "#000080",    "cterm":    "4"}
     let lightgoldenrod  = {"gui": "#d7af5f",    "cterm":    "179"}
@@ -40,6 +40,7 @@ function! s:set() abort
     let none            = {"gui": "NONE",           "cterm":    "NONE"}
     let bold            = {"gui": "bold",           "cterm":    "bold"}
     let underline       = {"gui": "underline",      "cterm":    "underline"}
+	let italic          = {"gui": "italic",         "cterm":    "italic"}
 
     " General
     let highlight_group = {}
@@ -102,10 +103,8 @@ function! s:set() abort
     let highlight_group.SpellLocal   = [neongreen, none, underline, none]
     let highlight_group.SpellRare    = [cornflowerblue, none, underline, none]
 
-    " Coc
-    let highlight_group.CocListPath		= [none, white, none, none]
-    let highlight_group.CocErrorSign	= [none, violentviolet, none, none]
-    let highlight_group.CocWarningSign	= [none, violentviolet, none, none]
+    " Nvim LSP
+    let highlight_group.LspDiagnosticsDefaultError	= [redlipstick, none, italic, none]
 
     for [group, colors] in items(highlight_group)
         execute printf("highlight %s guifg=%s guibg=%s gui=%s, guisp=%s ctermfg=%s ctermbg=%s cterm=%s",
