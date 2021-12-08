@@ -56,3 +56,6 @@ o.completeopt = "menuone,longest,noselect,noinsert"
 o.tabstop = 4
 o.shiftwidth = 4
 o.softtabstop = 4
+
+-- Remove trailing whitespace
+cmd("autocmd FileType golang,javascript,lua,python autocmd BufWritePre <buffer> %s/\\s\\+$//e")

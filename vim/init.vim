@@ -55,6 +55,8 @@ set wrap
 "augroup END
 "set spell spelllang=en_us
 
+" Remove trailing whitespace
+autocmd FileType golang,javascript,lua,python autocmd BufWritePre <buffer> %s/\s\+$//e
 
 " Handle extremely Large files
 let g:LargeFile = 1024 * 1024 * 1024
