@@ -1,10 +1,10 @@
-column_limit: 80
+column_limit: 120
 indent_width: 2
 use_tab: false
 tab_width: 2
 continuation_indent_width: 2
 spaces_before_call: 1
-keep_simple_control_block_one_line: true
+keep_simple_control_block_one_line: false
 keep_simple_function_one_line: true
 align_args: true
 break_after_functioncall_lp: false
@@ -22,6 +22,7 @@ chop_down_table: false
 chop_down_kv_table: true
 table_sep: ","
 extra_sep_at_table_end: false
+column_table_limit: 1
 spaces_inside_table_braces: false
 break_after_operator: true
 double_quote_to_single_quote: false

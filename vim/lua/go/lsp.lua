@@ -1,5 +1,4 @@
 -- https://www.getman.io/posts/programming-go-in-neovim/
-
 local nvim_lsp = require("lspconfig")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -12,7 +11,10 @@ local on_attach = function(client, bufnr)
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
   -- Mappings.
-  local opts = {noremap = true, silent = true}
+  local opts = {
+    noremap = true,
+    silent = true
+  }
   buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
   buf_set_keymap("n", "ga", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
@@ -49,8 +51,18 @@ local on_attach = function(client, bufnr)
 end
 
 function goimports(timeoutms)
-  local context = {source = {organizeImports = true}}
-  vim.validate {context = {context, "t", true}}
+  local context = {
+    source = {
+      organizeImports = true
+    }
+  }
+  vim.validate {
+    context = {
+      context,
+      "t",
+      true
+    }
+  }
 
   local params = vim.lsp.util.make_range_params()
   params.context = context
@@ -58,16 +70,22 @@ function goimports(timeoutms)
   -- See the implementation of the textDocument/codeAction callback
   -- (lua/vim/lsp/handler.lua) for how to do this properly.
   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
-  if not result or next(result) == nil then return end
+  if not result or next(result) == nil then
+    return
+  end
   local actions = result[1].result
-  if not actions then return end
+  if not actions then
+    return
+  end
   local action = actions[1]
 
   -- textDocument/codeAction can return either Command[] or CodeAction[]. If it
   -- is a CodeAction, it can have either an edit, a command or both. Edits
   -- should be executed first.
   if action.edit or type(action.command) == "table" then
-    if action.edit then vim.lsp.util.apply_workspace_edit(action.edit) end
+    if action.edit then
+      vim.lsp.util.apply_workspace_edit(action.edit)
+    end
     if type(action.command) == "table" then
       vim.lsp.buf.execute_command(action.command)
     end
@@ -78,13 +96,18 @@ end
 
 -- Set up gopls
 nvim_lsp.gopls.setup({
-  cmd = {"gopls"},
+  cmd = {
+    "gopls"
+  },
   -- for postfix snippets and analyzers
   capabilities = capabilities,
   settings = {
     gopls = {
       experimentalPostfixCompletions = true,
-      analyses = {unusedparams = true, shadow = true},
+      analyses = {
+        unusedparams = true,
+        shadow = true
+      },
       staticcheck = true
     }
   },

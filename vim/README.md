@@ -21,8 +21,12 @@ cd autoload
 ln -s /path/to/plug.vim plug.vim
 ```
 
+``` vim
+:PlugInstall
+```
 
-## pav-nvim
+
+## paq-nvim
 
 ``` sh
 git clone --depth=1 https://github.com/savq/paq-nvim.git $HOME/.local/share/nvim/site/pack/paqs/start/paq-nvim
@@ -30,12 +34,16 @@ git clone --depth=1 https://github.com/savq/paq-nvim.git $HOME/.local/share/nvim
 
 `lua/plugins.lua`
 
-``` sh
+``` lua
 require "paq" {
   "savq/paq-nvim", -- Let Paq manage itself
   "fatih/vim-go", -- Go developement
   "neovim/nvim-lspconfig" -- Mind the semi-colons
 }
+```
+
+``` vim
+:PaqInstall
 ```
 
 
