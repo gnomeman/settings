@@ -1,3 +1,14 @@
+# Init
+
+## Vim + Lua
+
+``` bash
+cd ~/.config/nvim
+ln -s $REPO/vim/hybrid.vim $HOME/.config/nvim/init.vim
+```
+
+
+
 # Install plugin system
 
 ## vim-plug
@@ -11,7 +22,7 @@ ln -s /path/to/plug.vim plug.vim
 ```
 
 
-# pav-nvim
+## pav-nvim
 
 ``` sh
 git clone --depth=1 https://github.com/savq/paq-nvim.git $HOME/.local/share/nvim/site/pack/paqs/start/paq-nvim
