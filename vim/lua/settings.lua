@@ -7,7 +7,7 @@ local set_keymap = vim.api.nvim_set_keymap
 -- Constants
 local LEADER = "<leader>"
 local NOREMAP_TRUE = {
-  noremap = true
+  noremap = true,
 }
 
 -- Map leader to space
@@ -59,3 +59,6 @@ o.softtabstop = 4
 
 -- Remove trailing whitespace
 cmd("autocmd FileType golang,javascript,lua,python autocmd BufWritePre <buffer> %s/\\s\\+$//e")
+
+-- Enable filetype plugin
+cmd("filetype plugin on")

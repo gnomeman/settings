@@ -5,11 +5,12 @@ require("paq") {
   "hrsh7th/vim-vsnip",
   "hrsh7th/cmp-vsnip",
   "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-nvim-lsp"
+  "hrsh7th/cmp-nvim-lsp",
 }
+
+-- Load autocomplete
+-- require("autocomplete")
 
 -- Load LSP configs
 require("go.lsp")
-
--- Load autocomplete
-require("autocomplete")
+require("lua.lsp")
