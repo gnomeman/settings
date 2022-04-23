@@ -5,6 +5,7 @@
 ``` bash
 cd ~/.config/nvim
 ln -s $REPO/vim/hybrid.vim $HOME/.config/nvim/init.vim
+ln -s $REPO/vim/lua $HOME/.config/nvim/lua
 ```
 
 
