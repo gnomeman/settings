@@ -2,6 +2,9 @@ local fn_expand = vim.fn.expand
 local nvim_buf_set_keymap = vim.api.nvim_buf_set_keymap
 local vim_split = vim.split
 
+-- Set up the autocomplete logic necessary for listing out LSP options.
+require("lua.autocomplete")
+
 local PATH_LUA_LSP_MAIN = "~/Github/lua-language-server/main.lua"
 
 local opts = {
@@ -69,5 +72,6 @@ require("lspconfig").sumneko_lua.setup(
     },
     settings = settings,
     on_attach = on_attach,
+	capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
   }
 )
