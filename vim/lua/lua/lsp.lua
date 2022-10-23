@@ -1,5 +1,3 @@
-local autocomp = require("autocomplete")
-
 local fn_expand = vim.fn.expand
 local nvim_buf_set_keymap = vim.api.nvim_buf_set_keymap
 local vim_split = vim.split
@@ -71,6 +69,5 @@ require("lspconfig").sumneko_lua.setup(
     },
     settings = settings,
     on_attach = on_attach,
-    capabilities = autocomp.capabilities,
   }
 )
