@@ -38,7 +38,7 @@ filetype indent off
 set virtualedit=onemore
 set completeopt+=noinsert
 set completeopt-=preview
-colorscheme devastator
+colorscheme clownprince
 "colorscheme elflord
 set cursorline
 set nu

@@ -14,20 +14,28 @@ local opts = {
 local settings = {
   Lua = {
     runtime = {
-      version = "Lua 5.3.3",
+      version = "Lua 5.1",
+      --version = "Lua 5.3.3",
       path = {
         "?.lua",
         "?/init.lua",
         vim_split(package.path, ";"),
-        "/usr/local/lib/luarocks/rocks-5.3/?/init.lua",
-        "/usr/local/lib/lua/5.3/?/init.lua",
+		-- v5.1 or Luajit
+		"/usr/lib/luarocks/rocks-5.1/",
+		-- v5.3
+        --"/usr/local/lib/luarocks/rocks-5.3/?/init.lua",
+        --"/usr/local/lib/lua/5.3/?/init.lua",
       },
     },
     workspace = {
       library = {
+		-- Project path
         os.getenv("PWD"),
-        "/usr/local/lib/luarocks/rocks-5.3",
-        "/usr/local/lib/lua/5.3",
+		-- v5.1 or Luajib
+		"/usr/lib/luarocks/rocks-5.1/",
+		-- v5.3
+        --"/usr/local/lib/luarocks/rocks-5.3",
+        --"/usr/local/lib/lua/5.3",
       },
     },
     diagnostics = {

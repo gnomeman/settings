@@ -134,3 +134,12 @@ let g:ale_fixers = {
 # Environment
 export PATH=$PATH:~/go/bin
 ```
+
+
+
+# Lua IDE
+
+## LSP
+
+1. Clone and install the [Lua language server](https://github.com/sumneko/lua-language-server).
+1. In `lua/lua/lsp.lua`, set the `PATH_LUA_LSP_MAIN` value, set to the path of the `main.lua` in the LSP repo.
