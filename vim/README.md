@@ -139,7 +139,30 @@ export PATH=$PATH:~/go/bin
 
 # Lua IDE
 
+## Required packages
+
+### Neovim
+
+* [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+* [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+* [nvim-dap](https://github.com/mfussenegger/nvim-dap)
+* [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+
+### Lua
+
+* [lua-debug](https://github.com/actboy168/lua-debug)
+* [lua-language-server](https://github.com/sumneko/lua-language-server)
+* [lua-make](https://github.com/actboy168/luamake)
+* [mobdebug](https://github.com/pkulchenko/MobDebug)
+
+
 ## LSP
 
 1. Clone and install the [Lua language server](https://github.com/sumneko/lua-language-server).
 1. In `lua/lua/lsp.lua`, set the `PATH_LUA_LSP_MAIN` value, set to the path of the `main.lua` in the LSP repo.
+
+
+## Debugger
+
+### Set up dap-adapter
+
