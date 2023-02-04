@@ -1,10 +1,5 @@
 -- https://www.getman.io/posts/programming-go-in-neovim/
 local nvim_lsp = require("lspconfig")
-local autocomp = require("autocomplete")
-
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
-local capabilities = autocomp.capabilities
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...)
@@ -110,7 +105,7 @@ nvim_lsp.gopls.setup(
       "gopls",
     },
     -- for postfix snippets and analyzers
-    capabilities = capabilities,
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
     settings = {
       gopls = {
         experimentalPostfixCompletions = true,
