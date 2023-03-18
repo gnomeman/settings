@@ -35,11 +35,11 @@ function! s:set() abort
     let obsidian        = {"gui": "#262626",    "cterm":    "235"}
     let charcoal        = {"gui": "#585858",    "cterm":    "240"}
 
-	" Font styles
+    " Font styles
     let none            = {"gui": "NONE",           "cterm":    "NONE"}
     let bold            = {"gui": "bold",           "cterm":    "bold"}
     let underline       = {"gui": "underline",      "cterm":    "underline"}
-	  let italic          = {"gui": "italic",         "cterm":    "italic"}
+    let italic          = {"gui": "italic",         "cterm":    "italic"}
 
     " General
     let highlight_group = {}
@@ -103,7 +103,7 @@ function! s:set() abort
     let highlight_group.SpellRare    = [seltzerblue, none, underline, none]
 
     " Nvim LSP
-    let highlight_group.LspDiagnosticsDefaultError	= [bloodstain, none, italic, none]
+    let highlight_group.LspDiagnosticsDefaultError = [bloodstain, none, italic, none]
 
     for [group, colors] in items(highlight_group)
         execute printf("highlight %s guifg=%s guibg=%s gui=%s, guisp=%s ctermfg=%s ctermbg=%s cterm=%s",
