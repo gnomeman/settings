@@ -20,27 +20,26 @@ let g:colors_name = "clownprince"
 function! s:set() abort
     " Colors
     let deepskyblue     = {"gui": "#005f5f",    "cterm":    "23"}
-    let nauseousgreen   = {"gui": "#d7ffd7",    "cterm":    "194"}
-    let hotpink         = {"gui": "#ff5faf",    "cterm":    "205"}
+    let turquoise       = {"gui": "#00d7ff",    "cterm":    "45"}
+    let seltzerblue     = {"gui": "#5f87ff",    "cterm":    "69"}
+    let acidgreen       = {"gui": "#5fff5f",    "cterm":    "83"}
+    let violentviolet   = {"gui": "#af00ff",    "cterm":    "129"}
+    let germgreen       = {"gui": "#afd787",    "cterm":    "150"}
     let deeppink        = {"gui": "#d7005f",    "cterm":    "161"}
+    let magenta         = {"gui": "#d700ff",    "cterm":    "165"}
     let lightgoldenrod  = {"gui": "#d7af5f",    "cterm":    "179"}
-    let cornflowerblue  = {"gui": "#5f87ff",    "cterm":    "69"}
-    let germgreen		= {"gui": "#afd787",    "cterm":    "150"}
     let lightpink       = {"gui": "#d7d7af",    "cterm":    "187"}
-    let white           = {"gui": "#ffffff",    "cterm":    "15"}
+    let nauseousgreen   = {"gui": "#d7ffd7",    "cterm":    "194"}
+    let bloodstain      = {"gui": "#ff0000",    "cterm":    "196"}
+    let hotpink         = {"gui": "#ff5faf",    "cterm":    "205"}
     let obsidian        = {"gui": "#262626",    "cterm":    "235"}
     let charcoal        = {"gui": "#585858",    "cterm":    "240"}
-    let violentviolet   = {"gui": "#af00ff",    "cterm":    "129"}
-    let bloodstain		= {"gui": "#ff0000",    "cterm":    "196"}
-    let turquoise       = {"gui": "#00d7ff",    "cterm":    "45"}
-    let magenta         = {"gui": "#d700ff",    "cterm":    "165"}
-    let acidgreen       = {"gui": "#5fff5f",    "cterm":    "83"}
 
 	" Font styles
     let none            = {"gui": "NONE",           "cterm":    "NONE"}
     let bold            = {"gui": "bold",           "cterm":    "bold"}
     let underline       = {"gui": "underline",      "cterm":    "underline"}
-	let italic          = {"gui": "italic",         "cterm":    "italic"}
+	  let italic          = {"gui": "italic",         "cterm":    "italic"}
 
     " General
     let highlight_group = {}
@@ -51,14 +50,14 @@ function! s:set() abort
     let highlight_group.IncSearch    = [acidgreen, violentviolet, bold, none]
     let highlight_group.Search       = [violentviolet, acidgreen, none, none]
     let highlight_group.SpecialKey   = [germgreen, lightpink, none, none]
-    let highlight_group.Directory    = [cornflowerblue, none, none, none]
+    let highlight_group.Directory    = [seltzerblue, none, none, none]
     let highlight_group.Title        = [none, none, bold, none]
     let highlight_group.WarningMsg   = [none, lightgoldenrod, bold, none]
     let highlight_group.ErrorMsg     = [bloodstain, acidgreen, bold, none]
     let highlight_group.EndOfBuffer  = [lightpink, none, bold, none]
     let highlight_group.StatusLine   = [charcoal, acidgreen, bold, none]
     let highlight_group.Pmenu        = [acidgreen, obsidian, none, none]
-    let highlight_group.PmenuSel     = [lightgoldenrod, nauseousgreen, bold, none]
+    let highlight_group.PmenuSel     = [violentviolet, acidgreen, bold, none]
 
     " Cursor
     let highlight_group.CursorLine   = [none, none, none, none]
@@ -72,14 +71,14 @@ function! s:set() abort
     let highlight_group.MatchParen   = [acidgreen, violentviolet, none, none]
 
     " Syntax groups
-    let highlight_group.Comment      = [magenta, none, none, none]
-    let highlight_group.Identifier   = [cornflowerblue, none, bold, none]
+    let highlight_group.Comment      = [magenta, none, italic, none]
+    let highlight_group.Identifier   = [seltzerblue, none, bold, none]
     let highlight_group.Statement    = [acidgreen, none, bold, none]
     let highlight_group.Function     = [turquoise, none, bold, none]
     let highlight_group.Constant     = [violentviolet, none, none, none]
-    let highlight_group.String       = [cornflowerblue, none, none, none]
+    let highlight_group.String       = [seltzerblue, none, none, none]
     let highlight_group.Number       = [acidgreen, none, none, none]
-    let highlight_group.Type         = [cornflowerblue, none, bold, none]
+    let highlight_group.Type         = [seltzerblue, none, bold, none]
     let highlight_group.Special      = [bloodstain, none, none, none]
     let highlight_group.PreProc      = [acidgreen, none, bold, none]
     let highlight_group.Todo         = [bloodstain, none, bold, none]
@@ -88,20 +87,20 @@ function! s:set() abort
 
     " Tabs
     let highlight_group.TabLineSel   = [acidgreen, violentviolet, bold, none]
-    let highlight_group.TabLineFill  = [cornflowerblue, acidgreen, none, none]
+    let highlight_group.TabLineFill  = [seltzerblue, acidgreen, none, none]
     let highlight_group.TabLine      = [violentviolet, acidgreen, bold, none]
  
     " Diff
     let highlight_group.DiffAdd     = [violentviolet, acidgreen, none, none]
     let highlight_group.DiffChange  = [deepskyblue, lightgoldenrod, none, none]
-    let highlight_group.DiffDelete  = [nauseousgreen, hotpink, none, none]
+    let highlight_group.DiffDelete  = [acidgreen, deeppink, none, none]
     let highlight_group.DiffText    = [nauseousgreen, germgreen, none, none]
 
     " Spelling
     let highlight_group.SpellBad     = [bloodstain, none, underline, none]
     let highlight_group.SpellCap     = [lightpink, none, underline, none]
     let highlight_group.SpellLocal   = [acidgreen, none, underline, none]
-    let highlight_group.SpellRare    = [cornflowerblue, none, underline, none]
+    let highlight_group.SpellRare    = [seltzerblue, none, underline, none]
 
     " Nvim LSP
     let highlight_group.LspDiagnosticsDefaultError	= [bloodstain, none, italic, none]
