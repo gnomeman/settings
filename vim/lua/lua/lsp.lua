@@ -63,7 +63,7 @@ local function on_attach(client, bufnr)
 	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 end
 
-require("lspconfig").sumneko_lua.setup({
+require("lspconfig").lua_ls.setup({
 	cmd = {
 		"lua-language-server",
 		"-E",

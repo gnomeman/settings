@@ -28,6 +28,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
   buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
   buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+  -- TODO: Make this a global binding
+  buf_set_keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float(0, {scope='line'})<CR>", opts)
 
   -- Set some keybinds conditional on server capabilities
   if client.server_capabilities.document_formatting then

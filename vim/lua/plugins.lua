@@ -1,9 +1,13 @@
 require("paq")({
+	-- Dependencies
 	"savq/paq-nvim",
+	"nvim-lua/plenary.nvim",
 	"neovim/nvim-lspconfig",
 	"nvim-treesitter/nvim-treesitter",
 	"vim-ctrlspace/vim-ctrlspace",
-	-- For autocomplete
+	-- Git
+	"TimUntersberger/neogit",
+	-- Autocomplete
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
 	-- Debugger
@@ -16,3 +20,10 @@ require("lua.autocomplete")
 -- Load LSP configs
 require("go.lsp")
 require("lua.lsp")
+
+-- Plugin - ctrl space
+vim.cmd([[let g:CtrlSpaceDefaultMappingKey = "<C-space> "]])
+
+-- neogit
+local neogit = require("neogit")
+neogit.setup({})
