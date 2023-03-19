@@ -12,21 +12,6 @@ ln -s $REPO/vim/lua $HOME/.config/nvim/lua
 
 # Install plugin system
 
-## vim-plug
-
-``` sh
-git clone https://github.com/junegunn/vim-plug.git
-cd ~/.config/nvim
-mkdir autoload
-cd autoload
-ln -s /path/to/plug.vim plug.vim
-```
-
-``` vim
-:PlugInstall
-```
-
-
 ## paq-nvim
 
 ``` sh
@@ -162,7 +147,21 @@ export PATH=$PATH:~/go/bin
 1. In `lua/lua/lsp.lua`, set the `PATH_LUA_LSP_MAIN` value, set to the path of the `main.lua` in the LSP repo.
 
 
-## Debugger
 
-### Set up dap-adapter
+# Debugger
 
+## Go
+
+Setup the DAP environment like so:
+
+``` lua
+require("dap-go").setup()
+require("dapui").setup()
+```
+
+To start the debugger, place breakpoints (`:DapToggleBreakpoint`) on the line, then start the application in the debugger (`:DapContinue`).
+Start the UI:
+
+``` lua
+require("dapui").open()
+```

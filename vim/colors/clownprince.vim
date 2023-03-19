@@ -87,9 +87,9 @@ function! s:set() abort
     let highlight_group.TabLine      = [charcoal, obsidian, bold, none]
  
     " Diff
-    let highlight_group.DiffAdd     = [violentviolet, acidgreen, none, none]
+    let highlight_group.DiffAdd     = [acidgreen, none, bold, none]
+    let highlight_group.DiffDelete  = [bloodstain, none, none, none]
     let highlight_group.DiffChange  = [deepskyblue, gold, none, none]
-    let highlight_group.DiffDelete  = [acidgreen, deeppink, none, none]
     let highlight_group.DiffText    = [nauseousgreen, germgreen, none, none]
 
     " Spelling
