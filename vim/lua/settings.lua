@@ -7,7 +7,7 @@ local set_keymap = vim.api.nvim_set_keymap
 -- Constants
 local LEADER = "<leader>"
 local NOREMAP_TRUE = {
-  noremap = true,
+	noremap = true,
 }
 
 -- Map leader to space
@@ -21,15 +21,15 @@ set_keymap("i", "jk", "<Esc>", NOREMAP_TRUE)
 
 -- Clipboard
 o.clipboard = o.clipboard .. "unnamedplus"
-set_keymap("v", LEADER .. "y", "\"+y", NOREMAP_TRUE)
-set_keymap("n", LEADER .. "y", "\"+y", NOREMAP_TRUE)
-set_keymap("n", LEADER .. "Y", "\"+yg", NOREMAP_TRUE)
-set_keymap("n", LEADER .. "yy", "\"+yy", NOREMAP_TRUE)
+set_keymap("v", LEADER .. "y", '"+y', NOREMAP_TRUE)
+set_keymap("n", LEADER .. "y", '"+y', NOREMAP_TRUE)
+set_keymap("n", LEADER .. "Y", '"+yg', NOREMAP_TRUE)
+set_keymap("n", LEADER .. "yy", '"+yy', NOREMAP_TRUE)
 
-set_keymap("v", LEADER .. "p", "\"+p", NOREMAP_TRUE)
-set_keymap("v", LEADER .. "P", "\"+P", NOREMAP_TRUE)
-set_keymap("n", LEADER .. "p", "\"+p", NOREMAP_TRUE)
-set_keymap("n", LEADER .. "P", "\"+P", NOREMAP_TRUE)
+set_keymap("v", LEADER .. "p", '"+p', NOREMAP_TRUE)
+set_keymap("v", LEADER .. "P", '"+P', NOREMAP_TRUE)
+set_keymap("n", LEADER .. "p", '"+p', NOREMAP_TRUE)
+set_keymap("n", LEADER .. "P", '"+P', NOREMAP_TRUE)
 
 -- Colors
 o.termguicolors = true
