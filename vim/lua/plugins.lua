@@ -21,7 +21,7 @@ require("lua.autocomplete")
 
 -- Load LSP configs
 require("go.ide")
-require("lua.lsp")
+require("lua.ide")
 
 -- Plugin - ctrl space
 vim.cmd([[let g:CtrlSpaceDefaultMappingKey = "<C-space> "]])

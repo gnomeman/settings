@@ -5,7 +5,7 @@ local vim_split = vim.split
 -- Set up the autocomplete logic necessary for listing out LSP options.
 require("lua.autocomplete")
 
-local PATH_LUA_LSP_MAIN = "~/Github/lua-language-server/main.lua"
+local PATH_LUA_LSP_MAIN = "/PATH/TO/LUA/LSP/SERVER"
 
 local opts = {
 	noremap = true,
