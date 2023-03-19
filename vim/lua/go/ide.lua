@@ -121,7 +121,9 @@ nvim_lsp.gopls.setup({
 	on_attach = on_attach,
 })
 
--- vim.lsp.set_log_level("debug")
-
 vim.cmd("autocmd BufWritePre *.go lua vim.lsp.buf.formatting()")
 vim.cmd("autocmd BufWritePre *.go lua goimports(1000)")
+
+-- Setup for debuger
+require("dap-go").setup()
+require("dapui").setup()

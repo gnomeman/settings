@@ -11,14 +11,16 @@ require("paq")({
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
 	-- Debugger
-	"mfussenegger/nvim-dap"
+	"mfussenegger/nvim-dap",
+	"rcarriga/nvim-dap-ui",
+	"leoluz/nvim-dap-go",
 })
 
 -- Load autocomplete
 require("lua.autocomplete")
 
 -- Load LSP configs
-require("go.lsp")
+require("go.ide")
 require("lua.lsp")
 
 -- Plugin - ctrl space
