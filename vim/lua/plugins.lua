@@ -15,17 +15,3 @@ require("paq")({
 	"rcarriga/nvim-dap-ui",
 	"leoluz/nvim-dap-go",
 })
-
--- Load autocomplete
-require("lua.autocomplete")
-
--- Load LSP configs
-require("go.ide")
-require("lua.ide")
-
--- Plugin - ctrl space
-vim.cmd([[let g:CtrlSpaceDefaultMappingKey = "<C-space> "]])
-
--- neogit
-local neogit = require("neogit")
-neogit.setup({})
