@@ -1,5 +1,8 @@
 call plug#begin(stdpath("config") . "/plugged")
 Plug 'mfussenegger/nvim-dap'
+"Plug 'Yggdroot/indentLine'
+"Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+"Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
 
