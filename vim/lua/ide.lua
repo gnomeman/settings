@@ -1,6 +1,12 @@
 -- Locals
 local cmd = vim.cmd
+local opt = vim.opt
 local set_keymap = vim.keymap.set
+
+-- Enable folding
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldenable = false
 
 -- Load autocomplete
 require("lua.autocomplete")

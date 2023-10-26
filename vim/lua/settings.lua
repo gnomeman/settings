@@ -43,6 +43,7 @@ cmd("set cursorline!") -- Have to set CursorLineNr to show line number colors
 o.virtualedit = "onemore"
 set_keymap("n", "j", "gj", NOREMAP_TRUE)
 set_keymap("n", "k", "gk", NOREMAP_TRUE)
+o.mouse = ""
 
 -- Search configuration
 o.hlsearch = true
@@ -53,6 +54,8 @@ o.incsearch = true
 
 -- Autocomplete
 o.completeopt = "menuone,longest,noselect,noinsert"
+-- Disable annoying autoindent
+o.indentkeys = ""
 
 -- Spacing
 o.tabstop = 2

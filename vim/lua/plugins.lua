@@ -7,7 +7,7 @@ require("paq")(
     "nvim-treesitter/nvim-treesitter",
     "vim-ctrlspace/vim-ctrlspace",
     -- Git
-	"tpope/vim-fugitive",
+    "tpope/vim-fugitive",
     -- Autocomplete
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
