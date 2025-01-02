@@ -1,5 +1,4 @@
 local fn_expand = vim.fn.expand
-local nvim_buf_set_keymap = vim.api.nvim_buf_set_keymap
 local vim_split = vim.split
 
 -- Set up the autocomplete logic necessary for listing out LSP options.
@@ -48,18 +47,56 @@ local settings = {
 }
 
 local function on_attach(client, bufnr)
-  local function buf_set_keymap(...)
-    nvim_buf_set_keymap(bufnr, ...)
-  end
+  local keymap = vim.keymap.set
 
   -- Key bindings
-  buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  buf_set_keymap("n", "<leader>R", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  buf_set_keymap("n", "<leader>K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  buf_set_keymap("n", "<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  buf_set_keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  buf_set_keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()(0, {scope='line'})<CR>", opts)
+  keymap(
+    "n", "gd", vim.lsp.buf.definition, {
+      desc = "Lua: Jumps to the definition of the symbol under the cursor.",
+      buffer = bufnr,
+    }
+  )
+  keymap(
+    "n", "gr", vim.lsp.buf.references, {
+      desc = "Lua: Lists all the references to the symbol under the cursor in the quickfix window.",
+    }
+  )
+  keymap(
+    "n", "<leader>R", vim.lsp.buf.rename, {
+      desc = "Lua: Renames all references to the symbol under the cursor.",
+      buffer = bufnr,
+    }
+  )
+  keymap(
+    "n", "<leader>K", vim.lsp.buf.hover, {
+      desc = "Lua: Displays hover information about the symbol under the cursor in a floating window.",
+      buffer = bufnr,
+    }
+  )
+  keymap(
+    "n", "<leader>k", vim.lsp.buf.signature_help, {
+      desc = "Lua: Displays signature information about the symbol under the cursor in a floating window.",
+      buffer = bufnr,
+    }
+  )
+  keymap(
+    "n", "<leader>q", vim.diagnostic.setloclist, {
+      desc = "Lua: Add buffer diagnostics to the location list.",
+      buffer = bufnr,
+    }
+  )
+  keymap(
+    "n", "<leader>e", function()
+      vim.diagnostic.open_float(
+        0, {
+          scope = "line",
+        }
+      )
+    end, {
+      desc = "Lua: Display diagnostic message.",
+      buffer = bufnr,
+    }
+  )
 
 end
 

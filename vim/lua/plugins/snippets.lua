@@ -1,4 +1,3 @@
--- Setup nvim-cmp for autocomplete
 local cmp = require("cmp")
 
 cmp.setup(
