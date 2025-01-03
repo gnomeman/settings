@@ -1,9 +1,6 @@
 local fn_expand = vim.fn.expand
 local vim_split = vim.split
 
--- Set up the autocomplete logic necessary for listing out LSP options.
-require("lua.autocomplete")
-
 local PATH_LUA_LSP_MAIN = "/home/luthor/Projects/Github/lua-language-server/main.lua"
 
 local opts = {
