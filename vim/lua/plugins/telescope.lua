@@ -60,7 +60,12 @@ keymap(
   }
 )
 keymap(
-  "n", "<leader>fg", builtin.live_grep, {
+  "n", "<leader>fg", builtin.grep_string, {
+    desc = "Searches for the string under your cursor or the visual selection in current working dir.",
+  }
+)
+keymap(
+  "n", "<leader>fl", builtin.live_grep, {
     desc = "Search for a string and get results live as you type.",
   }
 )
@@ -78,6 +83,11 @@ keymap(
     )
   end, {
     desc = "Lists LSP document symbols in the current buffer.",
+  }
+)
+keymap(
+  "n", "<leader>fr", builtin.resume, {
+    desc = "Opens the previous picker in the identical state.",
   }
 )
 keymap(
