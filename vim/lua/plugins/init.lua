@@ -36,7 +36,8 @@ require("paq")(
   }
 )
 
+require("plugins.cmp")
 require("plugins.kulala")
-require("plugins.snippets")
 require("plugins.sunglasses")
 require("plugins.telescope")
+require("plugins.vsnip")

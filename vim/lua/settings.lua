@@ -67,3 +67,6 @@ cmd("autocmd FileType golang,javascript,lua,python autocmd BufWritePre <buffer> 
 
 -- Enable filetype plugin
 cmd("filetype plugin on")
+
+-- Terminal
+set_keymap("t", "<Leader>jk", "<C-\\><C-n>", NOREMAP_TRUE)

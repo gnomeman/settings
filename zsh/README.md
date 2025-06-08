@@ -11,6 +11,8 @@ git clone --depth=1 https://github.com/spaceship-prompt/spaceship-vi-mode.git $Z
 git clone git@github.com:zdharma-zmirror/fast-syntax-highlighting.git $ZSH_PLUGIN_DIR/fast-syntax-highlighting
 git clone git@github.com:zsh-users/zsh-autosuggestions.git $ZSH_PLUGIN_DIR/zsh-autosuggestions
 git clone git@github.com:zsh-users/zsh-completions.git $ZSH_PLUGIN_DIR/zsh-completions
+git clone git@github.com:zsh-users/zsh-completions.git $ZSH_PLUGIN_DIR/zsh-completions
+git clone https://github.com/zsh-users/zsh-history-substring-search.git $ZSH_PLUGIN_DIR/zsh-history-substring-search
 ```
 
 
