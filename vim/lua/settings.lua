@@ -2,38 +2,40 @@ local cmd = vim.cmd
 local o = vim.o
 local wo = vim.wo
 local g = vim.g
-local set_keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
--- Constants
-local LEADER = "<leader>"
-local NOREMAP_TRUE = {
-  noremap = true,
-}
+local opts_silent = require("internal.keymap").opts_silent
 
--- Map leader to space
+-- Map leader key
 g.mapleader = ","
 
 -- Swap files
 o.swapfile = true
 
 -- Escape using jk
-set_keymap("i", "jk", "<Esc>", NOREMAP_TRUE)
+keymap("i", "jk", "<Esc>", opts_silent("\"Just kidding\" or escape"))
 
 -- Clipboard
 o.clipboard = o.clipboard .. "unnamedplus"
-set_keymap("v", LEADER .. "y", "\"+y", NOREMAP_TRUE)
-set_keymap("n", LEADER .. "y", "\"+y", NOREMAP_TRUE)
-set_keymap("n", LEADER .. "Y", "\"+yg", NOREMAP_TRUE)
-set_keymap("n", LEADER .. "yy", "\"+yy", NOREMAP_TRUE)
+keymap({"v", "n"}, "<leader>y", "\"+y", opts_silent("Copy"))
+keymap("n", "<leader>Y", "\"+yg", opts_silent("Copy"))
+keymap("n", "<leader>yy", "\"+yy", opts_silent("Copy"))
 
-set_keymap("v", LEADER .. "p", "\"+p", NOREMAP_TRUE)
-set_keymap("v", LEADER .. "P", "\"+P", NOREMAP_TRUE)
-set_keymap("n", LEADER .. "p", "\"+p", NOREMAP_TRUE)
-set_keymap("n", LEADER .. "P", "\"+P", NOREMAP_TRUE)
+keymap({"v", "n"}, "<leader>p", "\"+p", opts_silent("Paste"))
+keymap({"v", "n"}, "<leader>P", "\"+P", opts_silent("Paste"))
 
 -- Colors
 o.termguicolors = true
-cmd("colorscheme clownprince")
+
+-- Change colorscheme based on time of day
+local current_hour = os.date("*t").hour
+local COLORSCHEME_DAY_TIME = 8
+local COLORSCHEME_NIGHT_TIME = 20
+if current_hour < COLORSCHEME_DAY_TIME or current_hour > COLORSCHEME_NIGHT_TIME then
+	cmd("colorscheme swamps-have-eyes")
+else
+	cmd("colorscheme im-sorry-jon")
+end
 
 -- Line numbers
 wo.number = true
@@ -41,8 +43,8 @@ cmd("set cursorline!") -- Have to set CursorLineNr to show line number colors
 
 -- Cursor
 o.virtualedit = "onemore"
-set_keymap("n", "j", "gj", NOREMAP_TRUE)
-set_keymap("n", "k", "gk", NOREMAP_TRUE)
+keymap("n", "j", "gj", opts_silent("Go to the next line down, even if wrapped."))
+keymap("n", "k", "gk", opts_silent("Go to the next line up, even if wrapped."))
 o.mouse = ""
 
 -- Search configuration
@@ -63,10 +65,21 @@ o.shiftwidth = 2
 o.softtabstop = 2
 
 -- Remove trailing whitespace
-cmd("autocmd FileType golang,javascript,lua,python autocmd BufWritePre <buffer> %s/\\s\\+$//e")
+--cmd("autocmd FileType golang,javascript,lua,python autocmd BufWritePre <buffer> %s/\\s\\+$//e")
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "go", "javascript", "lua", "python", "json", "yaml" },
+  callback = function()
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = 0,
+      callback = function()
+        vim.cmd([[%s/\s\+$//e]])
+      end,
+    })
+  end,
+})
 
 -- Enable filetype plugin
 cmd("filetype plugin on")
 
 -- Terminal
-set_keymap("t", "<Leader>jk", "<C-\\><C-n>", NOREMAP_TRUE)
+keymap("t", "<leader>jk", "<C-\\><C-n>", opts_silent("Terminal: Exit"))
