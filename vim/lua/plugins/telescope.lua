@@ -80,7 +80,7 @@ keymap(
   "n", "<leader>fn", function()
     builtin.lsp_document_symbols(
       {
-        symbols = "function",
+        symbols = {"function", "method"},
       }
     )
   end, {

@@ -21,6 +21,7 @@ require("paq")(
     "hrsh7th/vim-vsnip",
     "hrsh7th/vim-vsnip-integ",
     "hrsh7th/cmp-vsnip",
+		"rafamadriz/friendly-snippets",
     -- HTTP request
     "mistweaverco/kulala.nvim",
     -- Database
