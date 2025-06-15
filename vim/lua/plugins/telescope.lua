@@ -10,8 +10,8 @@ require("telescope").setup(
       mappings = {
         n = {
           q = actions.close,
-					["^D"] = actions.results_scrolling_down,
-					["^U"] = actions.results_scrolling_up
+					["K"] = actions.results_scrolling_up,
+					["J"] = actions.results_scrolling_down
         },
       },
       initial_mode = "normal",

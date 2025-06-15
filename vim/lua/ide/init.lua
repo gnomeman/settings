@@ -5,7 +5,7 @@ local opts_silent = require("internal.keymap").opts_silent
 
 -- Enable folding
 opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldenable = false
 
 -- Debugger keymapping
