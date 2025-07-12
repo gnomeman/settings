@@ -1,6 +1,8 @@
 local fn_expand = vim.fn.expand
 local vim_split = vim.split
 
+local base_ide_keymaps = require("internal.keymap").base_ide_keymaps
+
 local PATH_LUA_LSP_MAIN = "/home/luthor/Projects/Github/lua-language-server/main.lua"
 
 local opts = {
@@ -44,57 +46,7 @@ local settings = {
 }
 
 local function on_attach(client, bufnr)
-  local keymap = vim.keymap.set
-
-  -- Key bindings
-  keymap(
-    "n", "gd", vim.lsp.buf.definition, {
-      desc = "Lua: Jumps to the definition of the symbol under the cursor.",
-      buffer = bufnr,
-    }
-  )
-  keymap(
-    "n", "gr", vim.lsp.buf.references, {
-      desc = "Lua: Lists all the references to the symbol under the cursor in the quickfix window.",
-    }
-  )
-  keymap(
-    "n", "<leader>R", vim.lsp.buf.rename, {
-      desc = "Lua: Renames all references to the symbol under the cursor.",
-      buffer = bufnr,
-    }
-  )
-  keymap(
-    "n", "<leader>K", vim.lsp.buf.hover, {
-      desc = "Lua: Displays hover information about the symbol under the cursor in a floating window.",
-      buffer = bufnr,
-    }
-  )
-  keymap(
-    "n", "<leader>k", vim.lsp.buf.signature_help, {
-      desc = "Lua: Displays signature information about the symbol under the cursor in a floating window.",
-      buffer = bufnr,
-    }
-  )
-  keymap(
-    "n", "<leader>q", vim.diagnostic.setloclist, {
-      desc = "Lua: Add buffer diagnostics to the location list.",
-      buffer = bufnr,
-    }
-  )
-  keymap(
-    "n", "<leader>e", function()
-      vim.diagnostic.open_float(
-        0, {
-          scope = "line",
-        }
-      )
-    end, {
-      desc = "Lua: Display diagnostic message.",
-      buffer = bufnr,
-    }
-  )
-
+	base_ide_keymaps(bufnr)
 end
 
 require("lspconfig").lua_ls.setup(
