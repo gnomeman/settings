@@ -1,0 +1,5 @@
+require("paq")(
+	{
+		"mrcjkb/rustaceanvim"
+	}
+)

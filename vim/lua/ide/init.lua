@@ -132,7 +132,7 @@ keymap(
 	opts_silent("Debugger: Close")
 )
 
---
+-- Language specific
 require("ide.go")
 require("ide.lua")
-
+require("ide.rust")
