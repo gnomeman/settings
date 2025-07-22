@@ -32,14 +32,14 @@ local current_hour = os.date("*t").hour
 local COLORSCHEME_DAY_TIME = 8
 local COLORSCHEME_NIGHT_TIME = 20
 if current_hour < COLORSCHEME_DAY_TIME or current_hour > COLORSCHEME_NIGHT_TIME then
-	cmd("colorscheme swamps-have-eyes")
+	cmd.colorscheme("swamps-have-eyes")
 else
-	cmd("colorscheme im-sorry-jon")
+	cmd.colorscheme("im-sorry-jon")
 end
 
 -- Line numbers
 wo.number = true
-cmd("set cursorline!") -- Have to set CursorLineNr to show line number colors
+o.cursorline = true	-- Have to set CursorLineNr to show line number colors
 
 -- Cursor
 o.virtualedit = "onemore"
@@ -65,7 +65,6 @@ o.shiftwidth = 2
 o.softtabstop = 2
 
 -- Remove trailing whitespace
---cmd("autocmd FileType golang,javascript,lua,python autocmd BufWritePre <buffer> %s/\\s\\+$//e")
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "go", "javascript", "lua", "python", "json", "yaml" },
   callback = function()
@@ -78,8 +77,12 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Enable filetype plugin
+-- Filetype
 cmd("filetype plugin on")
+cmd("filetype indent off")
 
 -- Terminal
 keymap("t", "<leader>jk", "<C-\\><C-n>", opts_silent("Terminal: Exit"))
+
+-- Local project files
+o.exrc = true
