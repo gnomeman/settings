@@ -38,6 +38,7 @@ require("paq")(
 )
 
 require("plugins.cmp")
+require("plugins.dadbodui")
 require("plugins.kulala")
 require("plugins.sunglasses")
 require("plugins.telescope")
