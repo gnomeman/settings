@@ -17,12 +17,27 @@ keymap("i", "jk", "<Esc>", opts_silent("\"Just kidding\" or escape"))
 
 -- Clipboard
 o.clipboard = o.clipboard .. "unnamedplus"
-keymap({"v", "n"}, "<leader>y", "\"+y", opts_silent("Copy"))
+keymap(
+  {
+    "v",
+    "n",
+  }, "<leader>y", "\"+y", opts_silent("Copy")
+)
 keymap("n", "<leader>Y", "\"+yg", opts_silent("Copy"))
 keymap("n", "<leader>yy", "\"+yy", opts_silent("Copy"))
 
-keymap({"v", "n"}, "<leader>p", "\"+p", opts_silent("Paste"))
-keymap({"v", "n"}, "<leader>P", "\"+P", opts_silent("Paste"))
+keymap(
+  {
+    "v",
+    "n",
+  }, "<leader>p", "\"+p", opts_silent("Paste")
+)
+keymap(
+  {
+    "v",
+    "n",
+  }, "<leader>P", "\"+P", opts_silent("Paste")
+)
 
 -- Colors
 o.termguicolors = true
@@ -32,14 +47,14 @@ local current_hour = os.date("*t").hour
 local COLORSCHEME_DAY_TIME = 8
 local COLORSCHEME_NIGHT_TIME = 20
 if current_hour < COLORSCHEME_DAY_TIME or current_hour > COLORSCHEME_NIGHT_TIME then
-	cmd.colorscheme("swamps-have-eyes")
+  cmd.colorscheme("swamps-have-eyes")
 else
-	cmd.colorscheme("im-sorry-jon")
+  cmd.colorscheme("im-sorry-jon")
 end
 
 -- Line numbers
 wo.number = true
-o.cursorline = true	-- Have to set CursorLineNr to show line number colors
+o.cursorline = true -- Have to set CursorLineNr to show line number colors
 
 -- Cursor
 o.virtualedit = "onemore"
@@ -65,17 +80,28 @@ o.shiftwidth = 2
 o.softtabstop = 2
 
 -- Remove trailing whitespace
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "go", "javascript", "lua", "python", "json", "yaml" },
-  callback = function()
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = 0,
-      callback = function()
-        vim.cmd([[%s/\s\+$//e]])
-      end,
-    })
-  end,
-})
+vim.api.nvim_create_autocmd(
+  "FileType", {
+    pattern = {
+      "go",
+      "javascript",
+      "lua",
+      "python",
+      "json",
+      "yaml",
+    },
+    callback = function()
+      vim.api.nvim_create_autocmd(
+        "BufWritePre", {
+          buffer = 0,
+          callback = function()
+            vim.cmd([[%s/\s\+$//e]])
+          end,
+        }
+      )
+    end,
+  }
+)
 
 -- Filetype
 cmd("filetype plugin on")

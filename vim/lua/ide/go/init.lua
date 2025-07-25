@@ -4,7 +4,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
   -- Mappings.
-	require("internal.keymap").base_ide_keymaps(bufnr)
+  require("internal.keymap").base_ide_keymaps(bufnr)
 
   -- Set some keybinds conditional on server capabilities
   if client.server_capabilities.document_formatting then

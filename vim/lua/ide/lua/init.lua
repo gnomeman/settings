@@ -46,7 +46,7 @@ local settings = {
 }
 
 local function on_attach(client, bufnr)
-	base_ide_keymaps(bufnr)
+  base_ide_keymaps(bufnr)
 end
 
 require("lspconfig").lua_ls.setup(

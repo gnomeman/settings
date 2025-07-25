@@ -10,8 +10,8 @@ require("telescope").setup(
       mappings = {
         n = {
           q = actions.close,
-					["K"] = actions.results_scrolling_up,
-					["J"] = actions.results_scrolling_down
+          ["K"] = actions.results_scrolling_up,
+          ["J"] = actions.results_scrolling_down,
         },
       },
       initial_mode = "normal",
@@ -80,7 +80,10 @@ keymap(
   "n", "<leader>fn", function()
     builtin.lsp_document_symbols(
       {
-        symbols = {"function", "method"},
+        symbols = {
+          "function",
+          "method",
+        },
       }
     )
   end, {

@@ -1,5 +1,5 @@
 require("paq")(
-	{
-		"mrcjkb/rustaceanvim"
-	}
+  {
+    "mrcjkb/rustaceanvim",
+  }
 )
