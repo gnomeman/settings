@@ -1,3 +1,4 @@
+-- Setup
 require("sunglasses").setup(
   {
     config = true,

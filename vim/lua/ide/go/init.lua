@@ -1,3 +1,5 @@
+local keymap = vim.keymap.set
+
 -- Callback after LSP is loaded.
 local on_attach = function(client, bufnr)
   -- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -5,29 +7,6 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
   require("internal.keymap").base_ide_keymaps(bufnr)
-
-  -- Set some keybinds conditional on server capabilities
-  if client.server_capabilities.document_formatting then
-    keymap(
-      "n", "ff", function()
-        vim.lsp.buf.format(
-          {
-            async = true,
-          }
-        )
-      end, {
-        desc = "Formats a buffer using the attached (and optionally filtered) language server clients.",
-        buffer = bufnr,
-      }
-    )
-  elseif client.server_capabilities.document_range_formatting then
-    keymap(
-      "n", "ff", vim.lsp.formatexpr, {
-        desc = "Formats a buffer using the attached (and optionally filtered) language server clients.",
-        buffer = bufnr,
-      }
-    )
-  end
 
   -- Set autocommands conditional on server_capabilities
   if client.server_capabilities.document_highlight then

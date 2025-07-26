@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 
+-- Setup
 cmp.setup(
   {
     window = {
