@@ -118,4 +118,3 @@ keymap(
 -- Language specific
 require("ide.go")
 require("ide.lua")
-require("ide.rust")

@@ -1,5 +1,0 @@
-require("paq")(
-  {
-    "mrcjkb/rustaceanvim",
-  }
-)
