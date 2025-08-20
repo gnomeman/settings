@@ -32,6 +32,8 @@ rawset(
       "tpope/vim-dadbod",
       "kristijanhusak/vim-dadbod-ui",
       "kristijanhusak/vim-dadbod-completion",
+      -- Undo
+      "mbbill/undotree",
       -- Quality of life
       "miversen33/sunglasses.nvim",
       {
