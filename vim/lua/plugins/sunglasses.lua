@@ -1,5 +1,10 @@
+local ok, sunglasses = pcall(require, "sunglasses")
+if not ok then
+  return
+end
+
 -- Setup
-require("sunglasses").setup(
+sunglasses.setup(
   {
     config = true,
     filter_type = "NOSYNTAX",

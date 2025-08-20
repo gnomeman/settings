@@ -1,6 +1,9 @@
-local keymap = vim.keymap.set
+local ok, harpoon = pcall(require, "harpoon")
+if not ok then
+  return
+end
 
-local harpoon = require("harpoon")
+local keymap = vim.keymap.set
 
 -- Keymaps
 keymap(

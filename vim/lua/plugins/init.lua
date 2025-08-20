@@ -13,18 +13,29 @@ if not paq_is_installed then
   )
 
   -- Exit after PaqInstall.
-  vim.cmd("autocmd User PaqDoneInstall quit")
+  vim.api.nvim_create_autocmd(
+    "User", {
+      pattern = "PaqDoneInstall",
+      callback = function()
+        -- Set state of plugins install.
+        _loadout.state.plugins_just_installed = true
+
+        -- Prompt user that editor will exit.
+        vim.ui.input(
+          {
+            prompt = "Plugins installed. Reboot required. Press ENTER to proceed.",
+          }, function(_)
+          end
+        )
+        vim.cmd("quit")
+      end,
+    }
+  )
 
   -- Load plugins and install.
   vim.cmd.packadd("paq-nvim")
   local paq = require("paq")
   paq(_loadout.plugins)
-  vim.ui.input(
-    {
-      prompt = "Installing plugins. Afterwards, the system will exit automatically. Press ENTER to proceed.",
-    }, function(_)
-    end
-  )
   paq.install()
 
   -- Set the state of plugins.
@@ -43,4 +54,5 @@ require("plugins.kulala")
 require("plugins.sunglasses")
 require("plugins.telescope")
 require("plugins.treesitter")
+require("plugins.undotree")
 require("plugins.vsnip")

@@ -1,10 +1,15 @@
-local keymap = vim.keymap.set
+local ok, telescope = pcall(require, "telescope")
+if not ok then
+  return
+end
 
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
 
+local keymap = vim.keymap.set
+
 -- Setup
-require("telescope").setup(
+telescope.setup(
   {
     defaults = {
       mappings = {
