@@ -72,6 +72,7 @@ bindkey '^[[Z' undo                                             # Shift+tab undo
 bindkey -v
 autoload edit-command-line
 zle -N edit-command-line
+bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M vicmd '^f' edit-command-line
 
 # Enable fzf key bindings and auto-completion
