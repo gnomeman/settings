@@ -1,28 +1,28 @@
-local ok, treesitter = pcall(require, "nvim-treesitter.configs")
+local ok, treesitter = pcall(require, "nvim-treesitter")
 if not ok then
   return
 end
 
--- Setup
-treesitter.setup(
-  {
-    ensure_installed = {
-      "go",
-      "json",
-      "javascript",
-      "lua",
-      "python",
-      "rust",
-      "typescript",
-      "yaml",
-    },
-    sync_install = false,
-    auto_install = false,
-    highlight = {
-      enable = true,
-    },
-  }
-)
+treesitter.setup({
+	indent = {
+		enaabled = false,
+	}
+})
 
--- Fold method based on treesitter.
-vim.g.foldmethod = "nvim_treesitter#foldexpr()"
+local langs = {"go","java","javascript","json","lua","python","yaml"}
+treesitter.install(langs)
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {"go","java","javascript","json","lua","python","yaml"},
+	callback = function()
+		-- syntax highlighting, provided by Neovim
+		vim.treesitter.start()
+
+		-- folds, provided by Neovim
+		vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		vim.wo.foldmethod = "expr"
+
+		-- indentation, provided by nvim-treesitter
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
+})

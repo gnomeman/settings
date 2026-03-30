@@ -48,6 +48,7 @@ require("paq")(_loadout.plugins)
 
 -- Load specific plugins logic.
 require("plugins.cmp")
+require("plugins.codecompanion")
 require("plugins.dadbodui")
 require("plugins.harpoon")
 require("plugins.kulala")

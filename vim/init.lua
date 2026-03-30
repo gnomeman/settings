@@ -1,3 +1,5 @@
+-- TODO: Use autocmd to clean up logic. For example, load plugin configs after all plugins are installed.
+
 -- Use _loadout for loading configs initially, then remove it.
 rawset(
   _G, "_loadout", {
@@ -5,9 +7,13 @@ rawset(
       -- Dependencies
       "savq/paq-nvim",
       "nvim-lua/plenary.nvim",
-      "neovim/nvim-lspconfig",
-      "nvim-treesitter/nvim-treesitter",
       "nvim-neotest/nvim-nio",
+      {
+				"nvim-treesitter/nvim-treesitter",
+				branch = "main"
+			},
+			-- AI
+			"olimorris/codecompanion.nvim",
       -- Git
       "tpope/vim-fugitive",
       -- Autocomplete
@@ -21,6 +27,7 @@ rawset(
       "mrcjkb/rustaceanvim",
       -- Telescope
       "nvim-telescope/telescope.nvim",
+			"fdschmidt93/telescope-egrepify.nvim",
       -- Snippets
       "hrsh7th/vim-vsnip",
       "hrsh7th/vim-vsnip-integ",

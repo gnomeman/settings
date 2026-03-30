@@ -3,12 +3,8 @@ local vim_split = vim.split
 
 local base_ide_keymaps = require("internal.keymap").base_ide_keymaps
 
-local PATH_LUA_LSP_MAIN = "/home/luthor/Projects/Github/lua-language-server/main.lua"
-
-local opts = {
-  noremap = true,
-  silent = true,
-}
+local PATH_LSP_BIN = "lua-language-server"
+local PATH_LUA_LSP_MAIN = "$DIR_GITHUB/lua-language-server/main.lua"
 
 local settings = {
   Lua = {
@@ -49,15 +45,15 @@ local function on_attach(client, bufnr)
   base_ide_keymaps(bufnr)
 end
 
-require("lspconfig").lua_ls.setup(
-  {
-    cmd = {
-      "lua-language-server",
-      "-E",
-      fn_expand(PATH_LUA_LSP_MAIN),
-    },
-    settings = settings,
-    on_attach = on_attach,
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
-  }
-)
+vim.lsp.config["luals"] = {
+	filetypes = {"lua"},
+	cmd = {
+		PATH_LSP_BIN,
+		"-E",
+		fn_expand(PATH_LUA_LSP_MAIN),
+	},
+	settings = settings,
+	on_attach = on_attach,
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+}
+vim.lsp.enable("luals")

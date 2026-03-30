@@ -26,22 +26,22 @@ local on_attach = function(client, bufnr)
 end
 
 -- Set up gopls
-require("lspconfig").gopls.setup(
-  {
-    cmd = {
-      "gopls",
-    },
-    settings = {
-      gopls = {
-        analyses = {
-          unusedparams = true,
-        },
-        staticcheck = true,
-      },
-    },
-    on_attach = on_attach,
-  }
-)
+vim.lsp.config["gopls"] = {
+	filetypes = {"go"},
+	cmd = {
+		"gopls",
+	},
+	settings = {
+		gopls = {
+			analyses = {
+				unusedparams = true,
+			},
+			staticcheck = true,
+		},
+	},
+	on_attach = on_attach,
+}
+vim.lsp.enable("gopls")
 
 -- Auto format on save
 vim.api.nvim_create_autocmd(

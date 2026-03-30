@@ -26,6 +26,12 @@ function _M.base_ide_keymaps(cbuf)
   }
 
   keymap(
+    "n", "gi", vim.lsp.buf.implementation, {
+      desc = "Jumps to the implementation of the symbol under the cursor.",
+      buffer = cbuf,
+    }
+  )
+  keymap(
     "n", "gd", vim.lsp.buf.definition, {
       desc = "Jumps to the definition of the symbol under the cursor.",
       buffer = cbuf,
