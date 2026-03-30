@@ -1,20 +1,7 @@
-local kulala = require("kulala")
-
--- Constants
 local keymap = vim.keymap.set
+local opts_silent = require("internal.keymap").opts_silent
 
----
--- Generate silent opts table.
---
--- @param desc string
--- @return table
-local function opts_silent(desc)
-  return {
-    noremap = true,
-    silent = true,
-    desc = desc,
-  }
-end
+local kulala = require("kulala")
 
 -- Keymaps
 keymap("n", "<leader>h", kulala.run, opts_silent("Execute HTTP request."))

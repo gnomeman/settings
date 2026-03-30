@@ -1,7 +1,15 @@
-local cmp = require("cmp")
+local ok, cmp = pcall(require, "cmp")
+if not ok then
+  return
+end
 
+-- Setup
 cmp.setup(
   {
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    },
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
