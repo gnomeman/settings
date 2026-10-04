@@ -1,7 +1,4 @@
-local ok, sunglasses = pcall(require, "sunglasses")
-if not ok then
-  return
-end
+local sunglasses = require("sunglasses")
 
 -- Setup
 sunglasses.setup(

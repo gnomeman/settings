@@ -1,7 +1,4 @@
-local ok, kulala = pcall(require, "kulala")
-if not ok then
-  return
-end
+local kulala = require("kulala")
 
 -- Setup
 kulala.setup(

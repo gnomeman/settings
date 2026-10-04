@@ -1,5 +1,3 @@
-local set_highlight = require("internal.highlights").set_highlight
-
 -- Clear existing highlight
 vim.cmd("hi clear")
 
@@ -73,7 +71,7 @@ local colors = {
     cterm = 194,
   },
 
-	-- Yellows
+  -- Yellows
 
   eyes = {
     gui = "#ffff00",
@@ -88,63 +86,112 @@ local colors = {
   },
 }
 
+local function set_highlight(group, fg, bg, is_bold, is_standout, is_underlined)
+  vim.api.nvim_set_hl(
+    0, group, {
+      fg = fg.gui,
+      bg = bg.gui,
+      ctermfg = fg.cterm,
+      ctermbg = bg.cterm,
+      bold = is_bold,
+      standout = is_standout,
+      underline = is_underlined,
+    }
+  )
+end
+
+local function _set_highlight(group, fg, bg, opts)
+  local hl_opts = {
+    fg = fg.gui,
+    bg = bg.gui,
+    ctermfg = fg.cterm,
+    ctermbg = bg.cterm,
+  }
+
+  -- TODO: Check if the key is in nvim_set_hl.parameters.val
+  if type(opts) == "table" then
+    if opts.bold then
+      hl_opts.bold = true
+    end
+
+    if opts.italic then
+      hl_opts.italic = true
+    end
+
+    if opts.standout then
+      hl_opts.standout = true
+    end
+
+    if opts.underline then
+      hl_opts.underline = true
+    end
+  end
+
+  -- :help nvim_set_hl
+  vim.api.nvim_set_hl(0, group, hl_opts)
+end
+
 -- Base styles
-set_highlight("_AlertText", colors.blood, colors.NONE)
-set_highlight(
+_set_highlight("_AlertText", colors.blood, colors.NONE)
+_set_highlight(
   "_AlertUnderline", colors.blood, colors.NONE, {
     underline = true,
   }
 )
-set_highlight("_FadedItalicText", colors.charcoal, colors.NONE, {italic=true})
-set_highlight("_GlowText", colors.acid, colors.NONE)
-set_highlight(
+_set_highlight(
+  "_FadedItalicText", colors.charcoal, colors.NONE, {
+    italic = true,
+  }
+)
+_set_highlight("_GlowText", colors.acid, colors.NONE)
+_set_highlight(
   "_GlowTextBold", colors.acid, colors.NONE, {
     bold = true,
   }
 )
-set_highlight(
+_set_highlight(
   "_GlowTextBoldStandout", colors.obsidian, colors.acid, {
     bold = true,
   }
 )
-set_highlight(
+_set_highlight(
   "_GlowTextBoldDarkBg", colors.acid, colors.obsidian, {
     bold = true,
   }
 )
-set_highlight(
+_set_highlight(
   "_GlowTextBoldContrastBg", colors.obsidian, colors.acid, {
     bold = true,
   }
 )
-set_highlight("_GlowTextContrastBg", colors.obsidian, colors.acid)
-set_highlight("_NoGlowText", colors.floatingfishgray, colors.NONE)
-set_highlight(
+_set_highlight("_GlowTextContrastBg", colors.obsidian, colors.acid)
+_set_highlight("_NoGlowText", colors.floatingfishgray, colors.NONE)
+_set_highlight(
   "_NoGlowTextBold", colors.floatingfishgray, colors.NONE, {
     bold = true,
   }
 )
-set_highlight(
+_set_highlight(
   "_AltGlowText", colors.eyes, colors.NONE, {
     bold = true,
   }
 )
-set_highlight(
+_set_highlight(
   "_BarelyDarkBG", colors.NONE, colors.void, {
     bold = true,
   }
 )
 
 -- TODO
-set_highlight("DiagnosticInfo", colors.cucumber, colors.NONE)
-set_highlight("Label", colors.shadow, colors.NONE, {bold=true})
-set_highlight("Number", colors.soot, colors.NONE, {bold=true})
-set_highlight("Pmenu", colors.acid, colors.night)
-set_highlight("Special", colors.soot, colors.NONE, {bold=true})
-set_highlight("Statement", colors.slate, colors.NONE, {bold=true})
-set_highlight("String", colors.soot, colors.NONE)
-set_highlight("Type", colors.soot, colors.NONE)
-set_highlight("Variable", colors.slate, colors.NONE, {bold=true})
+set_highlight("DiagnosticInfo", colors.cucumber, colors.NONE, false)
+set_highlight("Label", colors.shadow, colors.NONE, true)
+set_highlight("Number", colors.soot, colors.NONE, true)
+set_highlight("Pmenu", colors.acid, colors.night, false)
+set_highlight("Special", colors.soot, colors.NONE, true)
+set_highlight("Statement", colors.slate, colors.NONE, true)
+set_highlight("String", colors.soot, colors.NONE, false)
+set_highlight("Type", colors.soot, colors.NONE, false)
+set_highlight("Variable", colors.slate, colors.NONE, true)
 
 -- Base style links
 vim.api.nvim_set_hl(

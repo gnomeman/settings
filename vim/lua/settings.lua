@@ -148,29 +148,39 @@ local function large_file_setup()
     -- 3. No syntax highlighting, filetype processing etc.
     -- This adds 'FileType' to the list of ignored events for the current buffer
     -- (The original script used a global option, this is a safer buffer-local approach)
-    vim.opt_local.eventignore:append('FileType')
+    vim.opt_local.eventignore:append("FileType")
     -- 4. Save memory when other file is viewed
-    vim.bo.bufhidden = 'unload'
+    vim.bo.bufhidden = "unload"
     -- 5. No undo possible
     vim.bo.undolevels = -1
 
     -- Display message (using nvim_echo for persistent notification)
-    local msg = ('The file is larger than %s MB, so some options are changed.'):format(
-      LARGE_FILE_THRESHOLD / 1024 / 1024
-    )
+    local msg = ("The file is larger than %s MB, so some options are changed."):format(LARGE_FILE_THRESHOLD / 1024 / 1024)
     -- This will echo the message when the autocommand runs, which is after BufReadPre
-    vim.api.nvim_echo({{msg, 'Error'}}, true, {})
+    vim.api.nvim_echo(
+      {
+        {
+          msg,
+          "Error",
+        },
+      }, true, {}
+    )
   end
 end
 
 -- Create the autocommand group
-local large_file_group = vim.api.nvim_create_augroup('LargeFile', {clear = true})
-
+local large_file_group = vim.api.nvim_create_augroup(
+                           "LargeFile", {
+    clear = true,
+  }
+                         )
 -- Setup the autocommand:
 -- On 'BufReadPre' (before reading the file into the buffer) for all files ('*'),
 -- call the large_file_setup function.
-vim.api.nvim_create_autocmd('BufReadPre', {
-  group = large_file_group,
-  pattern = '*',
-  callback = large_file_setup,
-})
+vim.api.nvim_create_autocmd(
+  "BufReadPre", {
+    group = large_file_group,
+    pattern = "*",
+    callback = large_file_setup,
+  }
+)

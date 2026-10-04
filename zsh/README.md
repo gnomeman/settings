@@ -6,14 +6,9 @@ export ZSH_PLUGIN_DIR=$ZSH/plugins
 
 mkdir -p $ZSH_PLUGIN_DIR
 
-git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git $ZSH_PLUGIN_DIR/spaceship
-git clone --depth=1 https://github.com/spaceship-prompt/spaceship-vi-mode.git $ZSH_PLUGIN_DIR/spaceship-vi-mode
-git clone git@github.com:zdharma-zmirror/fast-syntax-highlighting.git $ZSH_PLUGIN_DIR/fast-syntax-highlighting
 git clone git@github.com:zsh-users/zsh-autosuggestions.git $ZSH_PLUGIN_DIR/zsh-autosuggestions
-git clone git@github.com:zsh-users/zsh-completions.git $ZSH_PLUGIN_DIR/zsh-completions
-git clone git@github.com:zsh-users/zsh-completions.git $ZSH_PLUGIN_DIR/zsh-completions
-git clone https://github.com/zsh-users/zsh-history-substring-search.git $ZSH_PLUGIN_DIR/zsh-history-substring-search
 ```
+
 
 
 # For the machine at hand
@@ -23,7 +18,8 @@ echo export PATH=$PATH >> $ZSH/forthismachineonly.zsh
 ```
 
 
-#
+
+# Symlink
 
 ``` bash
 ln -s $REPO/zsh/zshrc $HOME/.zshrc

@@ -1,56 +1,51 @@
--- Check if Paq is installed. If not, then install.
-local paq_path = vim.fn.stdpath("data") .. "/site/pack/paqs/start/paq-nvim"
-local paq_is_installed = vim.fn.empty(vim.fn.glob(paq_path)) == 0
-if not paq_is_installed then
-  vim.fn.system(
+-- Native
+vim.cmd.packadd("nvim.undotree")
+vim.cmd.packadd("nvim.difftool")
+
+-- 3rd Party
+vim.pack.add(
+  {
+    -- Dependencies
+    "https://github.com/nvim-lua/plenary.nvim",
+    "https://github.com/nvim-neotest/nvim-nio",
     {
-      "git",
-      "clone",
-      "--depth=1",
-      "https://github.com/savq/paq-nvim.git",
-      paq_path,
-    }
-  )
-
-  -- Exit after PaqInstall.
-  vim.api.nvim_create_autocmd(
-    "User", {
-      pattern = "PaqDoneInstall",
-      callback = function()
-        -- Set state of plugins install.
-        _loadout.state.plugins_just_installed = true
-
-        -- Prompt user that editor will exit.
-        vim.ui.input(
-          {
-            prompt = "Plugins installed. Reboot required. Press ENTER to proceed.",
-          }, function(_)
-          end
-        )
-        vim.cmd("quit")
-      end,
-    }
-  )
-
-  -- Load plugins and install.
-  vim.cmd.packadd("paq-nvim")
-  local paq = require("paq")
-  paq(_loadout.plugins)
-  paq.install()
-
-  -- Set the state of plugins.
-  _loadout.state.plugins_just_installed = true
-  return
-end
-
--- Load global list of plugins.
-require("paq")(_loadout.plugins)
+      src = "https://github.com/nvim-treesitter/nvim-treesitter",
+      version = "main",
+    },
+    -- Git
+    "https://github.com/tpope/vim-fugitive",
+    -- Autocomplete
+    "https://github.com/hrsh7th/nvim-cmp",
+    "https://github.com/hrsh7th/cmp-nvim-lsp",
+    -- Debugger
+    "https://github.com/mfussenegger/nvim-dap",
+    "https://github.com/rcarriga/nvim-dap-ui",
+    "https://github.com/leoluz/nvim-dap-go",
+    -- Rust
+    "https://github.com/mrcjkb/rustaceanvim",
+    -- Telescope
+    "https://github.com/nvim-telescope/telescope.nvim",
+    "https://github.com/fdschmidt93/telescope-egrepify.nvim",
+    -- Snippets
+    "https://github.com/hrsh7th/vim-vsnip",
+    "https://github.com/hrsh7th/vim-vsnip-integ",
+    "https://github.com/hrsh7th/cmp-vsnip",
+    "https://github.com/rafamadriz/friendly-snippets",
+    -- HTTP request
+    "https://github.com/mistweaverco/kulala.nvim",
+    -- Database
+    "https://github.com/tpope/vim-dadbod",
+    "https://github.com/kristijanhusak/vim-dadbod-ui",
+    "https://github.com/kristijanhusak/vim-dadbod-completion",
+    -- Quality of life
+    "https://github.com/xero/evangelion.nvim",
+    "https://github.com/miversen33/sunglasses.nvim",
+  }
+)
 
 -- Load specific plugins logic.
 require("plugins.cmp")
-require("plugins.codecompanion")
 require("plugins.dadbodui")
-require("plugins.harpoon")
 require("plugins.kulala")
 require("plugins.sunglasses")
 require("plugins.telescope")

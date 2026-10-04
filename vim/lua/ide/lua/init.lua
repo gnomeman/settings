@@ -46,14 +46,16 @@ local function on_attach(client, bufnr)
 end
 
 vim.lsp.config["luals"] = {
-	filetypes = {"lua"},
-	cmd = {
-		PATH_LSP_BIN,
-		"-E",
-		fn_expand(PATH_LUA_LSP_MAIN),
-	},
-	settings = settings,
-	on_attach = on_attach,
-	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  filetypes = {
+    "lua",
+  },
+  cmd = {
+    PATH_LSP_BIN,
+    "-E",
+    fn_expand(PATH_LUA_LSP_MAIN),
+  },
+  settings = settings,
+  on_attach = on_attach,
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
 }
 vim.lsp.enable("luals")

@@ -27,19 +27,21 @@ end
 
 -- Set up gopls
 vim.lsp.config["gopls"] = {
-	filetypes = {"go"},
-	cmd = {
-		"gopls",
-	},
-	settings = {
-		gopls = {
-			analyses = {
-				unusedparams = true,
-			},
-			staticcheck = true,
-		},
-	},
-	on_attach = on_attach,
+  filetypes = {
+    "go",
+  },
+  cmd = {
+    "gopls",
+  },
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+  on_attach = on_attach,
 }
 vim.lsp.enable("gopls")
 
