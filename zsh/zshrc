@@ -1,7 +1,6 @@
 # ZSH HOME
 export ZSH=$HOME/.config/zsh
 export ZSH_PLUGIN_DIR=$ZSH/plugins
-source $ZSH/forthismachineonly.zsh
 
 # Options
 setopt correct                                                  # Auto correct mistakes
