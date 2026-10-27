@@ -7,6 +7,7 @@ cd ~/.config/nvim
 ln -s $REPO/vim/init.lua $HOME/.config/nvim/init.lua
 ln -s $REPO/vim/lua $HOME/.config/nvim/lua
 ln -s $REPO/vim/after $HOME/.config/nvim/after
+ln -s $REPO/vim/colors $HOME/.config/nvim/colors
 ```
 
 

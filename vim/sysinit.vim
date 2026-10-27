@@ -4,7 +4,7 @@ let mapleader = ","
 " General options
 set swapfile
 set termguicolors
-colorscheme elflord
+colorscheme default
 
 set relativenumber
 set number

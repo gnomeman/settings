@@ -21,8 +21,6 @@ vim.pack.add(
     "https://github.com/mfussenegger/nvim-dap",
     "https://github.com/rcarriga/nvim-dap-ui",
     "https://github.com/leoluz/nvim-dap-go",
-    -- Rust
-    "https://github.com/mrcjkb/rustaceanvim",
     -- Telescope
     "https://github.com/nvim-telescope/telescope.nvim",
     "https://github.com/fdschmidt93/telescope-egrepify.nvim",
