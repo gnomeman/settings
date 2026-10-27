@@ -1,2 +1,2 @@
 # Autosuggestions
-source $ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $DIR_ZSH_PLUGIN/zsh-autosuggestions/zsh-autosuggestions.zsh

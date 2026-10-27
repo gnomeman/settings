@@ -1,6 +1,6 @@
 # ZSH HOME
-export ZSH=$HOME/.config/zsh
-export ZSH_PLUGIN_DIR=$ZSH/plugins
+export DIR_ZSH=$HOME/.config/zsh
+export DIR_ZSH_PLUGIN=$DIR_ZSH/plugins
 
 # Options
 setopt correct                                                  # Auto correct mistakes
@@ -33,8 +33,8 @@ PROMPT='%F{119}%B[%DT%*]%b%f %F{46}%4C%f %F{160}%B$(parse_git_branch)%b%f
 %F{46}%B>%b%f '
 
 # History config
-touch $ZSH/.zsh_history
-export HISTFILE=$ZSH/.zsh_history
+touch $DIR_ZSH/.zsh_history
+export HISTFILE=$DIR_ZSH/.zsh_history
 
 # How many commands zsh will load to memory.
 export HISTSIZE=10000
@@ -97,4 +97,4 @@ zle -N vi-cmd-mode-fix
 source <(fzf --zsh)
 
 # Plugins
-source $ZSH/plugins.zsh
+source $DIR_ZSH/plugins.zsh

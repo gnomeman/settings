@@ -1,12 +1,12 @@
 # Install plugins
 
 ``` bash
-export ZSH=$HOME/.config/zsh
-export ZSH_PLUGIN_DIR=$ZSH/plugins
+export DIR_ZSH=$HOME/.config/zsh
+export DIR_ZSH_PLUGIN=$DIR_ZSH/plugins
 
-mkdir -p $ZSH_PLUGIN_DIR
+mkdir -p $DIR_ZSH_PLUGIN
 
-git clone git@github.com:zsh-users/zsh-autosuggestions.git $ZSH_PLUGIN_DIR/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $DIR_ZSH_PLUGIN/zsh-autosuggestions
 ```
 
 
@@ -15,6 +15,7 @@ git clone git@github.com:zsh-users/zsh-autosuggestions.git $ZSH_PLUGIN_DIR/zsh-a
 
 ``` bash
 ln -s $REPO/zsh/zshrc $HOME/.zshrc
+ln -s $REPO/zsh/plugins.zsh $DIR_ZSH/plugins.zsh
 ```
 
 
